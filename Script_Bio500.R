@@ -105,5 +105,6 @@ dbWriteTable(con, append = TRUE, name = "collaborations", value = db_collaborati
 dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names = FALSE)
 
+#add
 
 
