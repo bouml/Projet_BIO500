@@ -5,7 +5,7 @@ setwd("/Users/laurenceboum/Desktop/met_comp/BIO500_PROJET")
 library(RSQLite)
 con= dbConnect(SQLite(), dbname="./projet.db")
 
-##########  CREATION DE LA TABLE DE NOEUDS
+##########  CREATION DE LA TABLE DE NOEUDS  ##############################################
 noeuds_sql= 'CREATE TABLE noeuds (
   nom_prenom VARCHAR(50) NOT NULL,
   annee_debut DATE(4),
@@ -16,7 +16,7 @@ noeuds_sql= 'CREATE TABLE noeuds (
 );'
 dbSendQuery(con, noeuds_sql) #Envoie l'information a la table
 
-##########  CREATION DE LA TABLE DE COLLABORATION
+##########  CREATION DE LA TABLE DE COLLABORATION ########################################
 
 collab_sql= 'CREATE TABLE collaboration (
   etudiant1 VARCHAR(50) NOT NULL,
@@ -31,7 +31,7 @@ collab_sql= 'CREATE TABLE collaboration (
 );'
 dbSendQuery(con, collab_sql) #Envoie l'information a la table
 
-##########  CREATION DE LA TABLE DE COURS
+##########  CREATION DE LA TABLE DE COURS ##############################################
 cours_sql= 'CREATE TABLE cours (
   sigle CHAR(6) NOT NULL,
   credit INTEGER(1) ,
@@ -43,11 +43,11 @@ cours_sql= 'CREATE TABLE cours (
 );'
 dbSendQuery(con, cours_sql) #Envoie l'information a la table
 
-##########  VISUALISER LES TABLES
+##########  VISUALISER LES TABLES #####################################################
 dbListTables(con)
 
 
-##########  LECTURE DES FICHIERS COLLABORATION
+##########  LECTURE DES FICHIERS COLLABORATION  #######################################
 
 collab_1= read.table("collaboration_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
 collab_2= read.csv("collaborations_amelie.csv", skip = 1, header=F,sep = ";")
@@ -63,7 +63,7 @@ db_collaborations=rbind(collab_1,collab_2,collab_3,collab_4,collab_5,collab_6,co
 colnames(db_collaborations)=(c("etudiant1","etudiant2","sigle","date"))
 
 
-##########  LECTURE DES FICHIERS COURS
+##########  LECTURE DES FICHIERS COURS  ##############################################
 
 c1= read.table("Cours_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
 c2= read.csv("cours_amelie.csv", skip = 1, header=F,sep = ";",colClasses = c("character","integer","integer","integer","integer","NULL", "NULL"))
@@ -82,7 +82,7 @@ colnames(cours0)=(c("sigle","credit","obligatoire","laboratoire","libre"))
 db_cours=rbind(cours0,c3)
 
 
-##########  LECTURE DES FICHIERS NOEUDS
+##########  LECTURE DES FICHIERS NOEUDS ###########################################
 
 n1= read.table("etudiant_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
 n2= read.csv("noeuds_amelie.csv", skip = 1, header=F,sep = ";")
@@ -100,11 +100,11 @@ colnames(noeuds0)=(c("nom_prenom","annee_debut","session_debut","programme","coo
 
 db_noeuds=rbind(noeuds0,n4)
 
-##########  INJECTION DES DONNEES
+##########  INJECTION DES DONNEES ################################################
 dbWriteTable(con, append = TRUE, name = "collaborations", value = db_collaborations, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names = FALSE)
 
-#add
+
 
 
