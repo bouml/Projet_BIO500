@@ -106,5 +106,7 @@ dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = F
 dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names = FALSE)
 
 
+###ALLOOOOO
+
 
 
