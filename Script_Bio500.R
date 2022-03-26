@@ -21,13 +21,13 @@ dbSendQuery(con, noeuds_sql) #Envoie l'information a la table
 collab_sql= 'CREATE TABLE collaboration (
   etudiant1 VARCHAR(50) NOT NULL,
   etudiant2 VARCHAR(50) NOT NULL,
-  cours CHAR(6),                                        ###Faudrait pas l_appeler sigle pour faire le lien avec sigle de la table cours ?
+  sigle CHAR(6),                                        
   date DATE(3),
   coop BOOLEAN(1),
   PRIMARY KEY (etudiant1, etudiant2,cours)
   FOREIGN KEY (etudiant1) REFERENCES noeuds(nom_prenom)
   FOREIGN KEY (etudiant2) REFERENCES noeuds(nom_prenom)
-  FOREIGN KEY (cours) REFERENCES collaboration(cours)   ###Meme chose ici
+  FOREIGN KEY (sigle) REFERENCES collaboration(sigle)   
 );'
 dbSendQuery(con, collab_sql) #Envoie l'information a la table
 
