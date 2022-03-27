@@ -53,7 +53,7 @@ collab_2= read.csv("collaborations_amelie.csv", skip = 1, header=F,sep = ";")
 collab_3= read.table("collaborations_anthonystp.txt", skip=1, header = F, sep= ";")
 collab_4= read.csv("collaborations_cvl_jl_jl_mp_xs.csv", skip = 1, header=F,sep = ";")
 collab_5= read.csv("collaborations_DP-GL-LB-ML-VQ_txt.csv", skip = 1, header=F,sep = ";", colClasses = c("character","character", "character", "character", "NULL"))
-collab_6= read.table("collaborations_FXC_MF_TC_LRT_WP.txt", skip=1, header = F, sep= "\t", colClasses = c("character","character", "character", "character", "NULL", "NULL","NULL"))
+collab_6= read.table("collaborations_FXC_MF_TC_LRT_WP..txt", skip=1, header = F, sep= "\t", colClasses = c("character","character", "character", "character", "NULL", "NULL","NULL"))
 collab_7= read.table("collaborations_IL_MDH_ASP_MB_OL.txt", skip=1, header = F, sep= ";", colClasses = c("character","character", "character", "character", "NULL"))
 collab_8= read.table("collaborations_jbcaldlvjlgr.txt", skip=1, header = F, sep= ";")
 collab_9= read.table("collaborations_martineau.txt", skip=1, header = F, sep= ";")
@@ -105,7 +105,6 @@ dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = F
 dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names = FALSE)
 
 
-###ALLOOOOO
 
 
 
