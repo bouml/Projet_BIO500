@@ -161,8 +161,8 @@ o.noeuds$nom_prenom[o.noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_ka
 
 
 #enlever nouveaux doublons
-is.duplicated_collaborations <- duplicated(o.collaborations$etudiant1)
-collaborations <- subset(o.collaborations, is.duplicated_collaborations==F)  
+is.duplicated_noeuds <- duplicated(o.noeuds$nom_prenom)
+noeuds <- subset(o.noeuds, is.duplicated_noeuds==F)  
 
 
 
