@@ -101,8 +101,89 @@ db_noeuds=rbind(noeuds0,n4)
 
 ##########  INJECTION DES DONNEES ################################################
 dbWriteTable(con, append = TRUE, name = "collaborations", value = db_collaborations, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = FALSE)   
 dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names = FALSE)
+
+
+
+
+##########  ENLEVER LES ERREURS ET DOUBLONS  ################################################
+
+##COLLABORATIONS
+##enlever doublons
+is.duplicated_collaborations <- duplicated(db_collaborations)    
+sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F)  
+
+##mettre en ordre
+o.collaborations <- sub.collaborations[order(sub.collaborations$etudiant1),]
+
+##enlever erreurs
+o.collaborations$etudiant1[o.collaborations$etudiant1 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
+o.collaborations$etudiant1[o.collaborations$etudiant1 %in% c("baubien_marie")]<-"beaubien_marie"
+o.collaborations$etudiant1[o.collaborations$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
+
+#######trouver autres erreurs
+
+
+#enlever nouveaux doublons
+is.duplicated_collaborations <- duplicated(o.collaborations$etudiant1)
+collaborations <- subset(o.collaborations, is.duplicated_collaborations==F)  
+
+
+
+
+
+##COURS
+##enlever doublons
+is.duplicated_cours <- duplicated(db_cours$sigle)
+sub.cours <- subset(db_cours, is.duplicated_cours==F)  
+
+##mettre en ordre
+o.cours <- sub.cours[order(sub.cours$sigle),]
+
+
+
+
+
+##NOEUDS
+##enlever doublons
+is.duplicated_noeuds <- duplicated(db_noeuds$nom_prenom)
+sub.noeuds <- subset(db_noeuds, is.duplicated_noeuds==F)  
+
+##mettre en ordre
+o.noeuds <- sub.noeuds[order(sub.noeuds$nom_prenom),]
+
+##enlever erreurs
+o.noeuds$nom_prenom[o.noeuds$nom_prenom %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
+o.noeuds$nom_prenom[o.noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+
+#######trouver autres erreurs
+
+
+#enlever nouveaux doublons
+is.duplicated_collaborations <- duplicated(o.collaborations$etudiant1)
+collaborations <- subset(o.collaborations, is.duplicated_collaborations==F)  
+
+
+
+
+##########  REQUETES  ############################################################
+########## 1) Nombre de liens par etudiant
+sql_requete <- "
+SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations FROM (
+  SELECT DISTINCT etudiant1, etudiant2
+    FROM collaborations
+)
+GROUP BY etudiant1
+ORDER BY nb_collaborations
+;"
+nb_collaborations <- dbGetQuery(con, sql_requete)
+show(nb_collaborations)   
+
+
+
+
+########## 2) Decompte de liens par paire d_etudiants
 
 
 
