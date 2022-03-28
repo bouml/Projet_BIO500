@@ -1,9 +1,13 @@
-setwd("/Users/laurenceboum/Desktop/met_comp/BIO500_PROJET")
+setwd("/Users/laurenceboum/Desktop/met_comp/Projet_BIO500")
 
 
 #install.packages("RSQLite")
 library(RSQLite)
 con= dbConnect(SQLite(), dbname="./projet.db")
+
+#dbSendQuery(con, "DROP TABLE noeuds;")
+#dbSendQuery(con, "DROP TABLE collaboration;")
+#dbSendQuery(con, "DROP TABLE cours;")
 
 ##########  CREATION DE LA TABLE DE NOEUDS  ##############################################
 noeuds_sql= 'CREATE TABLE noeuds (
@@ -18,7 +22,7 @@ dbSendQuery(con, noeuds_sql) #Envoie l'information a la table
 
 ##########  CREATION DE LA TABLE DE COLLABORATION ########################################
 
-collab_sql= 'CREATE TABLE collaboration (
+collab_sql= 'CREATE TABLE collaborations (
   etudiant1 VARCHAR(50) NOT NULL,
   etudiant2 VARCHAR(50) NOT NULL,
   sigle CHAR(6),                                        
@@ -109,58 +113,50 @@ dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names =
 
 ##########  ENLEVER LES ERREURS ET DOUBLONS  ################################################
 
-##COLLABORATIONS
-##enlever doublons
+
+##########  COLLABORATIONS                   ################################################
+#   ENLEVER LES DOUBLONS
 is.duplicated_collaborations <- duplicated(db_collaborations)    
 sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F)  
 
-##mettre en ordre
+#   METTRE EN ORDRE
 o.collaborations <- sub.collaborations[order(sub.collaborations$etudiant1),]
 
-##enlever erreurs
+#   ENLEVER LES ERREURS
 o.collaborations$etudiant1[o.collaborations$etudiant1 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
 o.collaborations$etudiant1[o.collaborations$etudiant1 %in% c("baubien_marie")]<-"beaubien_marie"
 o.collaborations$etudiant1[o.collaborations$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
 
-#######trouver autres erreurs
-
-
-#enlever nouveaux doublons
+#   ENLEVER LES AUTRES DOUBLONS
 is.duplicated_collaborations <- duplicated(o.collaborations$etudiant1)
 collaborations <- subset(o.collaborations, is.duplicated_collaborations==F)  
 
 
 
-
-
-##COURS
-##enlever doublons
+##########  COURS                        ################################################
+#   ENLEVER LES DOUBLONS
 is.duplicated_cours <- duplicated(db_cours$sigle)
 sub.cours <- subset(db_cours, is.duplicated_cours==F)  
 
-##mettre en ordre
+#   METTRE EN ORDRE
 o.cours <- sub.cours[order(sub.cours$sigle),]
 
 
 
+##########  NOEUDS                     ################################################
 
-
-##NOEUDS
-##enlever doublons
+#   ENLEVER LES DOUBLONS
 is.duplicated_noeuds <- duplicated(db_noeuds$nom_prenom)
 sub.noeuds <- subset(db_noeuds, is.duplicated_noeuds==F)  
 
-##mettre en ordre
+#   METTRE EN ORDRE
 o.noeuds <- sub.noeuds[order(sub.noeuds$nom_prenom),]
 
-##enlever erreurs
+#   ENLEVER LES ERREURS
 o.noeuds$nom_prenom[o.noeuds$nom_prenom %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
 o.noeuds$nom_prenom[o.noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
 
-#######trouver autres erreurs
-
-
-#enlever nouveaux doublons
+#   ENLEVER LES AUTRES DOUBLONS
 is.duplicated_noeuds <- duplicated(o.noeuds$nom_prenom)
 noeuds <- subset(o.noeuds, is.duplicated_noeuds==F)  
 
@@ -168,7 +164,7 @@ noeuds <- subset(o.noeuds, is.duplicated_noeuds==F)
 
 
 ##########  REQUETES  ############################################################
-########## 1) Nombre de liens par etudiant
+# 1) Nombre de liens par etudiant
 sql_requete <- "
 SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations FROM (
   SELECT DISTINCT etudiant1, etudiant2
@@ -183,7 +179,7 @@ show(nb_collaborations)
 
 
 
-########## 2) Decompte de liens par paire d_etudiants
+# 2) Decompte de liens par paire d_etudiants
 
 
 
