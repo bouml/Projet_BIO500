@@ -24,7 +24,7 @@ collab_sql= 'CREATE TABLE collaboration (
   sigle CHAR(6),                                        
   date DATE(3),
   coop BOOLEAN(1),
-  PRIMARY KEY (etudiant1, etudiant2,cours)
+  PRIMARY KEY (etudiant1, etudiant2)
   FOREIGN KEY (etudiant1) REFERENCES noeuds(nom_prenom)
   FOREIGN KEY (etudiant2) REFERENCES noeuds(nom_prenom)
   FOREIGN KEY (sigle) REFERENCES collaboration(sigle)   
