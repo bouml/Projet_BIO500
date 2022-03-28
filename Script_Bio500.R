@@ -20,8 +20,10 @@ noeuds_sql= 'CREATE TABLE noeuds (
 );'
 dbSendQuery(con, noeuds_sql) #Envoie l'information a la table
 
-##########  CREATION DE LA TABLE DE COLLABORATION ########################################
 
+
+
+##########  CREATION DE LA TABLE DE COLLABORATION ########################################
 collab_sql= 'CREATE TABLE collaborations (
   etudiant1 VARCHAR(50) NOT NULL,
   etudiant2 VARCHAR(50) NOT NULL,
@@ -51,7 +53,6 @@ dbListTables(con)
 
 
 ##########  LECTURE DES FICHIERS COLLABORATION  #######################################
-
 collab_1= read.table("collaboration_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
 collab_2= read.csv("collaborations_amelie.csv", skip = 1, header=F,sep = ";")
 collab_3= read.table("collaborations_anthonystp.txt", skip=1, header = F, sep= ";")
@@ -67,7 +68,6 @@ colnames(db_collaborations)=(c("etudiant1","etudiant2","sigle","date"))
 
 
 ##########  LECTURE DES FICHIERS COURS  ##############################################
-
 c1= read.table("Cours_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
 c2= read.csv("cours_amelie.csv", skip = 1, header=F,sep = ";",colClasses = c("character","integer","integer","integer","integer","NULL", "NULL"))
 c3= read.table("cours_anthonystp.txt", skip=1, header = F, sep= ";",colClasses = c("character","integer","integer","integer","NULL","integer"))
@@ -86,7 +86,6 @@ db_cours=rbind(cours0,c3)
 
 
 ##########  LECTURE DES FICHIERS NOEUDS ###########################################
-
 n1= read.table("etudiant_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
 n2= read.csv("noeuds_amelie.csv", skip = 1, header=F,sep = ";")
 n3= read.table("noeuds_anthonystp .txt", skip=1, header = F, sep= ";")
