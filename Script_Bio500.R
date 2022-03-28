@@ -33,7 +33,7 @@ collab_sql= 'CREATE TABLE collaborations (
   PRIMARY KEY (etudiant1, etudiant2, sigle)
   FOREIGN KEY (etudiant1) REFERENCES noeuds(nom_prenom)
   FOREIGN KEY (etudiant2) REFERENCES noeuds(nom_prenom)
-  FOREIGN KEY (sigle) REFERENCES collaboration(sigle)   
+  FOREIGN KEY (sigle) REFERENCES collaborations(sigle)   
 );'
 dbSendQuery(con, collab_sql) #Envoie l'information a la table
 
@@ -113,10 +113,13 @@ dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names =
 ##########  ENLEVER LES ERREURS ET DOUBLONS  ################################################
 
 
+####FAUT FAIRE CES OPERATIONS LA SUR LES TABLES (une fois qu_on va etre capable d_injecter les donnees dedans) ET NON SUR LES BASES DE DONNEES
+
+
 ##########  COLLABORATIONS                   ################################################
 #   ENLEVER LES DOUBLONS
-is.duplicated_collaborations <- duplicated(db_collaborations)    
-sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F)  
+is.duplicated_collaborations <- duplicated(db_collaborations)     ##DONC EVENTUELLEMENT CHANGER db_collaborations POUR collaborations 
+sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F)  ##ET IL FAUT PRENDRE EN COMPTE etudiant1, etudiant2 et sigle
 
 #   METTRE EN ORDRE
 o.collaborations <- sub.collaborations[order(sub.collaborations$etudiant1),]
