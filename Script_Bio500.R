@@ -1,4 +1,4 @@
-setwd("/Users/laurenceboum/Desktop/met_comp/Projet_BIO500")
+#setwd("/Users/laurenceboum/Desktop/met_comp/Projet_BIO500")
 
 
 #install.packages("RSQLite")
@@ -118,41 +118,39 @@ db_noeuds=rbind(noeuds0,n4)
 ##########  ENLEVER LES ERREURS ET DOUBLONS  #############################################
 ##########################################################################################
 
-# COLLABORATIONS    
-
+# COLLABORATIONS 
 #          ENLEVER LES ERREURS
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("baubien_marie")]<-"beaubien_marie"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("stpierre_anthony")]<-"saintpierre_anthony"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("viel_lapointe")]<-"viellapointe_catherine"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("vielapointe_catherine")]<-"viellapointe_catherine"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("saintamant_xavier")]<-"stamant_xavier"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("raymon_louisphilippe")]<-"raymond_louisphilippe"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("plewenski_david")]<-"plewinski_david"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("nadonbeaumier_ed+G5:J30ouard")]<-"nadonbeaumier_edouard"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("martineau_alex")]<-"martineau_alexandre"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("leclair_oliver")]<-"leclerc_olivier"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("leclerc_oliver")]<-"leclerc_olivier"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("langlois_claudianne")]<-"langlois_claudieanne"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("elisabeth_roy")]<-"roy_elisabeth"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("coulombe_Jessica")]<-"coulombe_jessica"
-order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("coulombre_jessica")]<-"coulombe_jessica"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("baubien_marie")]<-"beaubien_marie"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("stpierre_anthony")]<-"saintpierre_anthony"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("viel_lapointe")]<-"viellapointe_catherine"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("vielapointe_catherine")]<-"viellapointe_catherine"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("saintamant_xavier")]<-"stamant_xavier"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("raymon_louisphilippe")]<-"raymond_louisphilippe"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("plewenski_david")]<-"plewinski_david"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("nadonbeaumier_ed+G5:J30ouard")]<-"nadonbeaumier_edouard"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("martineau_alex")]<-"martineau_alexandre"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("leclair_oliver")]<-"leclerc_olivier"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("leclerc_oliver")]<-"leclerc_olivier"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("langlois_claudianne")]<-"langlois_claudieanne"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("elisabeth_roy")]<-"roy_elisabeth"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("coulombe_Jessica")]<-"coulombe_jessica"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("coulombre_jessica")]<-"coulombe_jessica"
 
-order_collaboration$sigle[order_collaboration$sigle %in% c("tbs303")]<-"TBS303"
+db_collaborations$sigle[db_collaborations$sigle %in% c("tbs303")]<-"TBS303"
 
 #          ENLEVER LES DOUBLONS
-is.duplicated_cours <- duplicated(db_collaborations) 
-sub.collaborations <- subset(db_collaborations, is.duplicated_cours==F) 
+is.duplicated_collaborations <- duplicated(db_collaborations[,1:3]) 
+sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F) 
 
 #          METTRE EN ORDRE
 order_collaboration <- sub.collaborations[order(sub.collaborations$etudiant1),]
-
 
 
 # COURS  
