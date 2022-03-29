@@ -221,6 +221,21 @@ SELECT etudiant1, etudiant2, count(DISTINCT sigle) AS nb_liens
 nb_liens<- dbGetQuery(con, liens_par_paire)
 show(nb_liens) 
 
+#     3) Nombre d_etudiants
+etudiants<- "
+SELECT count(DISTINCT etudiant1) as nb_etudiants
+  FROM collaborations
+  
+;"
+nb_etudiants<- dbGetQuery(con, etudiants)
+show(nb_etudiants) 
+
+#     4) Calcul de la connectance
+# C = L/S^2
+S2=as.numeric(nb_etudiants^2)
+L= sum(nb_collaborations$nb_collaborations)
+
+C=L/S2
 
 
 
