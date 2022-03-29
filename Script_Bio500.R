@@ -106,11 +106,9 @@ db_noeuds=rbind(noeuds0,n4)
 
 
 ##########  COLLABORATIONS                   ################################################
-###### à revoir car génère une seule fois le nom de l'étudiant1 tandis que devrait le répéter plusieurs fois ########
 
 #   ENLEVER LES DOUBLONS
-is.duplicated_collaborations <- duplicated(db_collaborations)     ##DONC EVENTUELLEMENT CHANGER db_collaborations POUR collaborations 
-sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F)  ##ET IL FAUT PRENDRE EN COMPTE etudiant1, etudiant2 et sigle
+sub.collaborations <- unique(db_collaborations)
 
 #   METTRE EN ORDRE
 o.collaborations <- sub.collaborations[order(sub.collaborations$etudiant1),]
