@@ -108,7 +108,7 @@ db_noeuds=rbind(noeuds0,n4)
 ##########  COLLABORATIONS                   ################################################
 
 #   ENLEVER LES DOUBLONS
-sub.collaborations <- unique(db_collaborations)
+sub.collaborations <- unique(db_collaborations[,c("etudiant1","etudiant2","sigle")])
 
 #   METTRE EN ORDRE
 o.collaborations <- sub.collaborations[order(sub.collaborations$etudiant1),]
@@ -119,7 +119,7 @@ o.collaborations$etudiant1[o.collaborations$etudiant1 %in% c("baubien_marie")]<-
 o.collaborations$etudiant1[o.collaborations$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
 
 #   ENLEVER LES AUTRES DOUBLONS
-collaborations <- unique(o.collaborations)
+f.collaborations <- unique(o.collaborations[,c("etudiant1","etudiant2","sigle")])
 
 
 
@@ -129,7 +129,7 @@ is.duplicated_cours <- duplicated(db_cours$sigle)
 sub.cours <- subset(db_cours, is.duplicated_cours==F)  
 
 #   METTRE EN ORDRE
-o.cours <- sub.cours[order(sub.cours$sigle),]
+f.cours <- sub.cours[order(sub.cours$sigle),]
 
 
 
@@ -148,15 +148,15 @@ o.noeuds$nom_prenom[o.noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_ka
 
 #   ENLEVER LES AUTRES DOUBLONS
 is.duplicated_noeuds <- duplicated(o.noeuds$nom_prenom)
-noeuds <- subset(o.noeuds, is.duplicated_noeuds==F)  
+f.noeuds <- subset(o.noeuds, is.duplicated_noeuds==F)  
 
 
 
 
 ##########  INJECTION DES DONNEES AVEC DOUBLONS ÉLIMINÉS  ################################################
-dbWriteTable(con, append = TRUE, name = "collaborations", value = collaborations, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "cours", value = o.cours, row.names = FALSE)   
-dbWriteTable(con, append = TRUE, name = "noeuds", value = noeuds, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "collaborations", value = f.collaborations, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "cours", value = f.cours, row.names = FALSE)   
+dbWriteTable(con, append = TRUE, name = "noeuds", value = f.noeuds, row.names = FALSE)
 #Ça serait bien d'utiliser la même forme pour chaque table soit o.nom ou seulement le 'nom'
 
 
