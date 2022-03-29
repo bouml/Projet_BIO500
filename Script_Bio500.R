@@ -145,13 +145,6 @@ db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("coulombre_jessic
 
 db_collaborations$sigle[db_collaborations$sigle %in% c("tbs303")]<-"TBS303"
 
-###############VOIR SI ÇA FONCTIONNE###################
-######          ENLEVER LES DOUBLONS
-#is.duplicated_cours <- db_collaborations[!duplicated(db_collaborations[,c("etudiant1", "etudiant2", "sigle")]),]
-#         METTRE EN ORDRE
-#order_collaboration <- is.duplicated_cours[order(is.duplicated_cours$etudiant1),]
-###############VOIR SI ÇA FONCTIONNE###################
-
 #          ENLEVER LES DOUBLONS
 is.duplicated_collaborations <- duplicated(db_collaborations[,1:3]) 
 sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F) 
@@ -216,13 +209,17 @@ nb_collaborations <- dbGetQuery(con, liens_par_etudiant)
 show(nb_collaborations)   
 
 #         2) Decompte de liens par paire d_etudiants
-test<- "
-SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations 
-    FROM collaborations
-
+liens_par_paire<- "
+SELECT etudiant1, etudiant2, count(DISTINCT sigle) AS nb_liens
+     FROM (SELECT DISTINCT etudiant1, etudiant2, sigle 
+      FROM collaborations)
+    
+     
+     GROUP BY etudiant1, etudiant2
+     ORDER BY nb_liens
 ;"
-nb_collaborations <- dbGetQuery(con, test)
-show(nb_collaborations)  
+nb_liens<- dbGetQuery(con, liens_par_paire)
+show(nb_liens) 
 
 
 
