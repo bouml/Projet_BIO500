@@ -32,8 +32,6 @@ cours_sql= 'CREATE TABLE cours (
 );'
 dbSendQuery(con, cours_sql) #Envoie l'information a la table
 
-##########  VISUALISER LES TABLES #####################################################
-dbListTables(con)
 
 ##########  CREATION DE LA TABLE DE COLLABORATION ########################################
 collab_sql= 'CREATE TABLE collaborations (
@@ -49,6 +47,8 @@ collab_sql= 'CREATE TABLE collaborations (
 );'
 dbSendQuery(con, collab_sql) #Envoie l'information a la table
 
+##########  VISUALISER LES TABLES #####################################################
+dbListTables(con)
 
 ##########  LECTURE DES FICHIERS COLLABORATION  #######################################
 collab_1= read.table("collaboration_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
