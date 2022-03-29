@@ -157,10 +157,10 @@ noeuds <- subset(o.noeuds, is.duplicated_noeuds==F)
 
 
 ##########  INJECTION DES DONNEES AVEC DOUBLONS ÉLIMINÉS  ################################################
-dbWriteTable(con, append = TRUE, name = "collaborations", value = db_collaborations, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = FALSE)   
-dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names = FALSE)
-
+dbWriteTable(con, append = TRUE, name = "collaborations", value = collaborations, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "cours", value = o.cours, row.names = FALSE)   
+dbWriteTable(con, append = TRUE, name = "noeuds", value = noeuds, row.names = FALSE)
+#Ça serait bien d'utiliser la même forme pour chaque table soit o.nom ou seulement le 'nom'
 
 
 
