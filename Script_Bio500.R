@@ -39,7 +39,6 @@ collab_sql= 'CREATE TABLE collaborations (
   etudiant2 VARCHAR(50) NOT NULL,
   sigle CHAR(6),                                        
   date DATE(3),
-  coop BOOLEAN(1),
   PRIMARY KEY (etudiant1, etudiant2, sigle)
   FOREIGN KEY (etudiant1) REFERENCES noeuds(nom_prenom)
   FOREIGN KEY (etudiant2) REFERENCES noeuds(nom_prenom)
