@@ -132,6 +132,11 @@ order_collaboration <- sub.collaborations[order(sub.collaborations$etudiant1),]
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("baubien_marie")]<-"beaubien_marie"
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("stpierre_anthony")]<-"saintpierre_anthony"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
 
 #          ENLEVER LES AUTRES DOUBLONS
 is.duplicated_collaborations <- duplicated(order_collaboration$etudiant1)
@@ -157,8 +162,14 @@ sub.noeuds <- subset(db_noeuds, is.duplicated_noeuds==F)
 order_noeuds <- sub.noeuds[order(sub.noeuds$nom_prenom),]
 
 #         ENLEVER LES ERREURS
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
+order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("baubien_marie")]<-"beaubien_marie"
+order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
+order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
+order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
+order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("stpierre_anthony")]<-"saintpierre_anthony"
+order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
 
 #         ENLEVER LES AUTRES DOUBLONS
 is.duplicated_noeuds <- duplicated(order_noeuds$nom_prenom)
