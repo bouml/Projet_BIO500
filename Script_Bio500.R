@@ -95,6 +95,7 @@ colnames(cours0)=(c("sigle","credit","obligatoire","laboratoire","libre"))
 
 db_cours=rbind(cours0,c3)
 
+
 #     FICHIERS NOEUDS
 n1= read.table("etudiant_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
 n2= read.csv("noeuds_amelie.csv", skip = 1, header=F,sep = ";")
@@ -173,7 +174,8 @@ dbWriteTable(con, append = TRUE, name = "noeuds", value = data_noeuds, row.names
 ##########################################################################################
 ##########      REQUETES      ############################################################
 ##########################################################################################
-# 1) Nombre de liens par etudiant
+
+#         1) Nombre de liens par etudiant
 sql_requete <- "
 SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations FROM (
   SELECT DISTINCT etudiant1, etudiant2
@@ -186,9 +188,7 @@ nb_collaborations <- dbGetQuery(con, sql_requete)
 show(nb_collaborations)   
 
 
-
-
-# 2) Decompte de liens par paire d_etudiants
+#         2) Decompte de liens par paire d_etudiants
 
 
 
