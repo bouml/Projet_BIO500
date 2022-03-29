@@ -101,7 +101,7 @@ colnames(noeuds0)=(c("nom_prenom","annee_debut","session_debut","programme","coo
 db_noeuds=rbind(noeuds0,n4)
 
 ##########  INJECTION DES DONNEES ################################################
-dbWriteTable(con, append = TRUE, name = "collaboration", value = db_collaborations, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "collaborations", value = db_collaborations, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = FALSE)   
 dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names = FALSE)
 
