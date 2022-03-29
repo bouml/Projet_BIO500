@@ -145,6 +145,13 @@ db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("coulombre_jessic
 
 db_collaborations$sigle[db_collaborations$sigle %in% c("tbs303")]<-"TBS303"
 
+###############VOIR SI ÇA FONCTIONNE###################
+######          ENLEVER LES DOUBLONS
+#is.duplicated_cours <- db_collaborations[!duplicated(db_collaborations[,c("etudiant1", "etudiant2", "sigle")]),]
+#         METTRE EN ORDRE
+#order_collaboration <- is.duplicated_cours[order(is.duplicated_cours$etudiant1),]
+###############VOIR SI ÇA FONCTIONNE###################
+
 #          ENLEVER LES DOUBLONS
 is.duplicated_collaborations <- duplicated(db_collaborations[,1:3]) 
 sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F) 
