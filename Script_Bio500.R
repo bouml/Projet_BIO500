@@ -10,8 +10,11 @@ con= dbConnect(SQLite(), dbname="./projet.db")
 #dbSendQuery(con, "DROP TABLE cours;")
 
 
+##########################################################################################
+##########      CREATION DES TABLES             ##########################################
+##########################################################################################
 
-##########  CREATION DE LA TABLE DE NOEUDS  ##############################################
+#     TABLE NOEUDS
 noeuds_sql= 'CREATE TABLE noeuds (
   nom_prenom VARCHAR(50) NOT NULL,
   annee_debut DATE(4),
@@ -23,7 +26,7 @@ noeuds_sql= 'CREATE TABLE noeuds (
 dbSendQuery(con, noeuds_sql) #Envoie l'information a la table
 
 
-  ##########  CREATION DE LA TABLE DE COURS ##############################################
+#     TABLE COURS
 cours_sql= 'CREATE TABLE cours (
   sigle CHAR(6) NOT NULL,
   credit INTEGER(1) ,
@@ -35,8 +38,7 @@ cours_sql= 'CREATE TABLE cours (
 dbSendQuery(con, cours_sql) #Envoie l'information a la table
 
 
-
-##########  CREATION DE LA TABLE DE COLLABORATION ########################################
+#     TABLE COLLABORATION
 collab_sql= 'CREATE TABLE collaborations (
   etudiant1 VARCHAR(50) NOT NULL,
   etudiant2 VARCHAR(50) NOT NULL,
@@ -49,10 +51,19 @@ collab_sql= 'CREATE TABLE collaborations (
 );'
 dbSendQuery(con, collab_sql) #Envoie l'information a la table
 
-##########  VISUALISER LES TABLES #####################################################
+
+##########################################################################################
+##########    VISUALISER LES TABLES   ####################################################
+##########################################################################################
 dbListTables(con)
 
-##########  LECTURE DES FICHIERS COLLABORATION  #######################################
+
+
+##########################################################################################
+##########       LECTURE DES FICHIERS           ##########################################
+##########################################################################################
+
+#     FICHIERS COLLABORATION 
 collab_1= read.table("collaboration_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
 collab_2= read.csv("collaborations_amelie.csv", skip = 1, header=F,sep = ";")
 collab_3= read.table("collaborations_anthonystp.txt", skip=1, header = F, sep= ";")
@@ -67,7 +78,7 @@ db_collaborations=rbind(collab_1,collab_2,collab_3,collab_4,collab_5,collab_6,co
 colnames(db_collaborations)=(c("etudiant1","etudiant2","sigle","date"))
 
 
-##########  LECTURE DES FICHIERS COURS  ##############################################
+#     FICHIERS COURS
 c1= read.table("Cours_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
 c2= read.csv("cours_amelie.csv", skip = 1, header=F,sep = ";",colClasses = c("character","integer","integer","integer","integer","NULL", "NULL"))
 c3= read.table("cours_anthonystp.txt", skip=1, header = F, sep= ";",colClasses = c("character","integer","integer","integer","NULL","integer"))
@@ -84,8 +95,7 @@ colnames(cours0)=(c("sigle","credit","obligatoire","laboratoire","libre"))
 
 db_cours=rbind(cours0,c3)
 
-
-##########  LECTURE DES FICHIERS NOEUDS ###########################################
+#     FICHIERS NOEUDS
 n1= read.table("etudiant_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
 n2= read.csv("noeuds_amelie.csv", skip = 1, header=F,sep = ";")
 n3= read.table("noeuds_anthonystp .txt", skip=1, header = F, sep= ";")
@@ -103,77 +113,66 @@ colnames(noeuds0)=(c("nom_prenom","annee_debut","session_debut","programme","coo
 db_noeuds=rbind(noeuds0,n4)
 
 
+##########################################################################################
+##########  ENLEVER LES ERREURS ET DOUBLONS  #############################################
+##########################################################################################
 
-##########  ENLEVER LES ERREURS ET DOUBLONS  ################################################
-
-
-##########  COLLABORATIONS                   ################################################
-
-#   ENLEVER LES DOUBLONS
+# COLLABORATIONS            
+#          ENLEVER LES DOUBLONS
 is.duplicated_cours <- duplicated(db_collaborations[,1:3]) 
 sub.collaborations <- subset(db_collaborations, is.duplicated_cours==F) 
 
-  sub.collaborations <- unique(db_collaborations)
+sub.collaborations <- unique(db_collaborations)
 
-
-#   METTRE EN ORDRE
+#          METTRE EN ORDRE
 order_collaboration <- sub.collaborations[order(sub.collaborations$etudiant1),]
 
-#   ENLEVER LES ERREURS
+#          ENLEVER LES ERREURS
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("baubien_marie")]<-"beaubien_marie"
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
 
-#   ENLEVER LES AUTRES DOUBLONS
+#          ENLEVER LES AUTRES DOUBLONS
 is.duplicated_collaborations <- duplicated(order_collaboration$etudiant1)
 data_collaborations <- subset(order_collaboration, is.duplicated_collaborations==F)  
-  collaborations <- unique(o.collaborations)
+collaborations <- unique(o.collaborations)
 
 
-##########  COURS                        ################################################
-#   ENLEVER LES DOUBLONS
+# COURS  
+#         ENLEVER LES DOUBLONS
 is.duplicated_cours <- duplicated(db_cours$sigle)
 sub.cours <- subset(db_cours, is.duplicated_cours==F)  
 
-#   METTRE EN ORDRE
+#         METTRE EN ORDRE
 data_cours <- sub.cours[order(sub.cours$sigle),]
 
 
-##########  NOEUDS                     ################################################
-
-#   ENLEVER LES DOUBLONS
+# NOEUDS
+#         ENLEVER LES DOUBLONS
 is.duplicated_noeuds <- duplicated(db_noeuds$nom_prenom)
 sub.noeuds <- subset(db_noeuds, is.duplicated_noeuds==F)  
 
-#   METTRE EN ORDRE
+#         METTRE EN ORDRE
 order_noeuds <- sub.noeuds[order(sub.noeuds$nom_prenom),]
 
-#   ENLEVER LES ERREURS
+#         ENLEVER LES ERREURS
 order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
 order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
 
-#   ENLEVER LES AUTRES DOUBLONS
+#         ENLEVER LES AUTRES DOUBLONS
 is.duplicated_noeuds <- duplicated(order_noeuds$nom_prenom)
 data_noeuds <- subset(order_noeuds, is.duplicated_noeuds==F)  
 
-
-
-
-##########  INJECTION DES DONNEES          ################################################
+##########################################################################################
+##########  INJECTION DES DONNEES          ###############################################
+##########################################################################################
 dbWriteTable(con, append = TRUE, name = "collaborations", value = data_collaborations, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "cours", value = data_cours, row.names = FALSE)   
 dbWriteTable(con, append = TRUE, name = "noeuds", value = data_noeuds, row.names = FALSE)
 
-  ##########  INJECTION DES DONNEES AVEC DOUBLONS ÉLIMINÉS  ################################################
-dbWriteTable(con, append = TRUE, name = "collaborations", value = collaborations, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "cours", value = o.cours, row.names = FALSE)   
-dbWriteTable(con, append = TRUE, name = "noeuds", value = noeuds, row.names = FALSE)
-#Ça serait bien d'utiliser la même forme pour chaque table soit o.nom ou seulement le 'nom'
-
-
-
-
-##########  REQUETES  ############################################################
+##########################################################################################
+##########      REQUETES      ############################################################
+##########################################################################################
 # 1) Nombre de liens par etudiant
 sql_requete <- "
 SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations FROM (
