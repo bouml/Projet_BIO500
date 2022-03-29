@@ -100,21 +100,14 @@ colnames(noeuds0)=(c("nom_prenom","annee_debut","session_debut","programme","coo
 
 db_noeuds=rbind(noeuds0,n4)
 
-##########  INJECTION DES DONNEES ################################################
-dbWriteTable(con, append = TRUE, name = "collaborations", value = db_collaborations, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = FALSE)   
-dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names = FALSE)
-
-
 
 
 ##########  ENLEVER LES ERREURS ET DOUBLONS  ################################################
 
 
-####FAUT FAIRE CES OPERATIONS LA SUR LES TABLES (une fois qu_on va etre capable d_injecter les donnees dedans) ET NON SUR LES BASES DE DONNEES
-
-
 ##########  COLLABORATIONS                   ################################################
+###### à revoir car génère une seule fois le nom de l'étudiant1 tandis que devrait le répéter plusieurs fois ########
+
 #   ENLEVER LES DOUBLONS
 is.duplicated_collaborations <- duplicated(db_collaborations)     ##DONC EVENTUELLEMENT CHANGER db_collaborations POUR collaborations 
 sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F)  ##ET IL FAUT PRENDRE EN COMPTE etudiant1, etudiant2 et sigle
@@ -159,6 +152,14 @@ o.noeuds$nom_prenom[o.noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_ka
 #   ENLEVER LES AUTRES DOUBLONS
 is.duplicated_noeuds <- duplicated(o.noeuds$nom_prenom)
 noeuds <- subset(o.noeuds, is.duplicated_noeuds==F)  
+
+
+
+
+##########  INJECTION DES DONNEES AVEC DOUBLONS ÉLIMINÉS  ################################################
+dbWriteTable(con, append = TRUE, name = "collaborations", value = db_collaborations, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = FALSE)   
+dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names = FALSE)
 
 
 
