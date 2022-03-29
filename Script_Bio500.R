@@ -119,8 +119,7 @@ o.collaborations$etudiant1[o.collaborations$etudiant1 %in% c("baubien_marie")]<-
 o.collaborations$etudiant1[o.collaborations$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
 
 #   ENLEVER LES AUTRES DOUBLONS
-is.duplicated_collaborations <- duplicated(o.collaborations$etudiant1)
-collaborations <- subset(o.collaborations, is.duplicated_collaborations==F)  
+collaborations <- unique(o.collaborations)
 
 
 
