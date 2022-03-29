@@ -5,9 +5,9 @@ setwd("/Users/laurenceboum/Desktop/met_comp/Projet_BIO500")
 library(RSQLite)
 con= dbConnect(SQLite(), dbname="./projet.db")
 
-#dbSendQuery(con, "DROP TABLE noeuds;")
-#dbSendQuery(con, "DROP TABLE collaborations;")
-#dbSendQuery(con, "DROP TABLE cours;")
+dbSendQuery(con, "DROP TABLE noeuds;")
+dbSendQuery(con, "DROP TABLE collaborations;")
+dbSendQuery(con, "DROP TABLE cours;")
 
 
 ##########################################################################################
@@ -118,15 +118,7 @@ db_noeuds=rbind(noeuds0,n4)
 ##########  ENLEVER LES ERREURS ET DOUBLONS  #############################################
 ##########################################################################################
 
-# COLLABORATIONS            
-#          ENLEVER LES DOUBLONS
-is.duplicated_cours <- duplicated(db_collaborations[,1:3]) 
-sub.collaborations <- subset(db_collaborations, is.duplicated_cours==F) 
-
-sub.collaborations <- unique(db_collaborations)
-
-#          METTRE EN ORDRE
-order_collaboration <- sub.collaborations[order(sub.collaborations$etudiant1),]
+# COLLABORATIONS    
 
 #          ENLEVER LES ERREURS
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
@@ -137,11 +129,30 @@ order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("hamzaoui_kar
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("stpierre_anthony")]<-"saintpierre_anthony"
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("viel_lapointe")]<-"viellapointe_catherine"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("vielapointe_catherine")]<-"viellapointe_catherine"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("saintamant_xavier")]<-"stamant_xavier"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("raymon_louisphilippe")]<-"raymond_louisphilippe"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("plewenski_david")]<-"plewinski_david"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("nadonbeaumier_ed+G5:J30ouard")]<-"nadonbeaumier_edouard"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("martineau_alex")]<-"martineau_alexandre"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("leclair_oliver")]<-"leclerc_olivier"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("leclerc_oliver")]<-"leclerc_olivier"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("langlois_claudianne")]<-"langlois_claudieanne"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("elisabeth_roy")]<-"roy_elisabeth"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("coulombe_Jessica")]<-"coulombe_jessica"
+order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("coulombre_jessica")]<-"coulombe_jessica"
 
-#          ENLEVER LES AUTRES DOUBLONS
-is.duplicated_collaborations <- duplicated(order_collaboration$etudiant1)
-data_collaborations <- subset(order_collaboration, is.duplicated_collaborations==F)  
-collaborations <- unique(o.collaborations)
+order_collaboration$sigle[order_collaboration$sigle %in% c("tbs303")]<-"TBS303"
+
+#          ENLEVER LES DOUBLONS
+is.duplicated_cours <- duplicated(db_collaborations) 
+sub.collaborations <- subset(db_collaborations, is.duplicated_cours==F) 
+
+#          METTRE EN ORDRE
+order_collaboration <- sub.collaborations[order(sub.collaborations$etudiant1),]
+
 
 
 # COURS  
@@ -162,14 +173,15 @@ sub.noeuds <- subset(db_noeuds, is.duplicated_noeuds==F)
 order_noeuds <- sub.noeuds[order(sub.noeuds$nom_prenom),]
 
 #         ENLEVER LES ERREURS
-order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
-order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("baubien_marie")]<-"beaubien_marie"
-order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
-order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
-order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
-order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
-order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("stpierre_anthony")]<-"saintpierre_anthony"
-order_noeuds$etudiant1[order_noeuds$etudiant1 %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("baubien_marie")]<-"beaubien_marie"
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("bertiaume_elise")]<-"berthiaume_elise"
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("stpierre_anthony")]<-"saintpierre_anthony"
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
+
 
 #         ENLEVER LES AUTRES DOUBLONS
 is.duplicated_noeuds <- duplicated(order_noeuds$nom_prenom)
@@ -178,7 +190,7 @@ data_noeuds <- subset(order_noeuds, is.duplicated_noeuds==F)
 ##########################################################################################
 ##########  INJECTION DES DONNEES          ###############################################
 ##########################################################################################
-dbWriteTable(con, append = TRUE, name = "collaborations", value = data_collaborations, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "collaborations", value = order_collaboration, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "cours", value = data_cours, row.names = FALSE)   
 dbWriteTable(con, append = TRUE, name = "noeuds", value = data_noeuds, row.names = FALSE)
 
@@ -187,20 +199,25 @@ dbWriteTable(con, append = TRUE, name = "noeuds", value = data_noeuds, row.names
 ##########################################################################################
 
 #         1) Nombre de liens par etudiant
-sql_requete <- "
-SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations FROM (
-  SELECT DISTINCT etudiant1, etudiant2
-    FROM collaborations
-)
-GROUP BY etudiant1
-ORDER BY nb_collaborations
+liens_par_etudiant<- "
+SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations 
+  FROM (SELECT DISTINCT etudiant1, etudiant2
+    FROM collaborations)
+
+  GROUP BY etudiant1
+  ORDER BY nb_collaborations
 ;"
-nb_collaborations <- dbGetQuery(con, sql_requete)
+nb_collaborations <- dbGetQuery(con, liens_par_etudiant)
 show(nb_collaborations)   
 
-
 #         2) Decompte de liens par paire d_etudiants
+test<- "
+SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations 
+    FROM collaborations
 
+;"
+nb_collaborations <- dbGetQuery(con, test)
+show(nb_collaborations)  
 
 
 
