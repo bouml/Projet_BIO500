@@ -21,22 +21,6 @@ noeuds_sql= 'CREATE TABLE noeuds (
 dbSendQuery(con, noeuds_sql) #Envoie l'information a la table
 
 
-
-
-##########  CREATION DE LA TABLE DE COLLABORATION ########################################
-collab_sql= 'CREATE TABLE collaborations (
-  etudiant1 VARCHAR(50) NOT NULL,
-  etudiant2 VARCHAR(50) NOT NULL,
-  sigle CHAR(6),                                        
-  date DATE(3),
-  coop BOOLEAN(1),
-  PRIMARY KEY (etudiant1, etudiant2, sigle)
-  FOREIGN KEY (etudiant1) REFERENCES noeuds(nom_prenom)
-  FOREIGN KEY (etudiant2) REFERENCES noeuds(nom_prenom)
-  FOREIGN KEY (sigle) REFERENCES collaborations(sigle)   
-);'
-dbSendQuery(con, collab_sql) #Envoie l'information a la table
-
 ##########  CREATION DE LA TABLE DE COURS ##############################################
 cours_sql= 'CREATE TABLE cours (
   sigle CHAR(6) NOT NULL,
@@ -50,6 +34,20 @@ dbSendQuery(con, cours_sql) #Envoie l'information a la table
 
 ##########  VISUALISER LES TABLES #####################################################
 dbListTables(con)
+
+##########  CREATION DE LA TABLE DE COLLABORATION ########################################
+collab_sql= 'CREATE TABLE collaborations (
+  etudiant1 VARCHAR(50) NOT NULL,
+  etudiant2 VARCHAR(50) NOT NULL,
+  sigle CHAR(6),                                        
+  date DATE(3),
+  coop BOOLEAN(1),
+  PRIMARY KEY (etudiant1, etudiant2, sigle)
+  FOREIGN KEY (etudiant1) REFERENCES noeuds(nom_prenom)
+  FOREIGN KEY (etudiant2) REFERENCES noeuds(nom_prenom)
+  FOREIGN KEY (sigle) REFERENCES cours(sigle)   
+);'
+dbSendQuery(con, collab_sql) #Envoie l'information a la table
 
 
 ##########  LECTURE DES FICHIERS COLLABORATION  #######################################
@@ -103,7 +101,7 @@ colnames(noeuds0)=(c("nom_prenom","annee_debut","session_debut","programme","coo
 db_noeuds=rbind(noeuds0,n4)
 
 ##########  INJECTION DES DONNEES ################################################
-dbWriteTable(con, append = TRUE, name = "collaborations", value = db_collaborations, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "collaboration", value = db_collaborations, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "cours", value = db_cours, row.names = FALSE)   
 dbWriteTable(con, append = TRUE, name = "noeuds", value = db_noeuds, row.names = FALSE)
 
