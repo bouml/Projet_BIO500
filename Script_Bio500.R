@@ -22,9 +22,7 @@ noeuds_sql= 'CREATE TABLE noeuds (
 );'
 dbSendQuery(con, noeuds_sql) #Envoie l'information a la table
 
-<<<<<<< HEAD
-=======
-  
+
   ##########  CREATION DE LA TABLE DE COURS ##############################################
 cours_sql= 'CREATE TABLE cours (
   sigle CHAR(6) NOT NULL,
@@ -37,7 +35,7 @@ cours_sql= 'CREATE TABLE cours (
 dbSendQuery(con, cours_sql) #Envoie l'information a la table
 
 
->>>>>>> 30f0e6b2bc835123cf4bc8b45be955137bf511bb
+
 ##########  CREATION DE LA TABLE DE COLLABORATION ########################################
 collab_sql= 'CREATE TABLE collaborations (
   etudiant1 VARCHAR(50) NOT NULL,
@@ -104,24 +102,19 @@ colnames(noeuds0)=(c("nom_prenom","annee_debut","session_debut","programme","coo
 
 db_noeuds=rbind(noeuds0,n4)
 
-<<<<<<< HEAD
-=======
-  
-  
-  >>>>>>> 30f0e6b2bc835123cf4bc8b45be955137bf511bb
+
+
 ##########  ENLEVER LES ERREURS ET DOUBLONS  ################################################
 
 
 ##########  COLLABORATIONS                   ################################################
 
 #   ENLEVER LES DOUBLONS
-<<<<<<< HEAD
-
 is.duplicated_cours <- duplicated(db_collaborations[,1:3]) 
 sub.collaborations <- subset(db_collaborations, is.duplicated_cours==F) 
-=======
+
   sub.collaborations <- unique(db_collaborations)
->>>>>>> 30f0e6b2bc835123cf4bc8b45be955137bf511bb
+
 
 #   METTRE EN ORDRE
 order_collaboration <- sub.collaborations[order(sub.collaborations$etudiant1),]
@@ -132,13 +125,9 @@ order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("baubien_mari
 order_collaboration$etudiant1[order_collaboration$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
 
 #   ENLEVER LES AUTRES DOUBLONS
-<<<<<<< HEAD
 is.duplicated_collaborations <- duplicated(order_collaboration$etudiant1)
 data_collaborations <- subset(order_collaboration, is.duplicated_collaborations==F)  
-=======
   collaborations <- unique(o.collaborations)
->>>>>>> 30f0e6b2bc835123cf4bc8b45be955137bf511bb
-
 
 
 ##########  COURS                        ################################################
@@ -170,19 +159,18 @@ data_noeuds <- subset(order_noeuds, is.duplicated_noeuds==F)
 
 
 
-<<<<<<< HEAD
 ##########  INJECTION DES DONNEES          ################################################
 dbWriteTable(con, append = TRUE, name = "collaborations", value = data_collaborations, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "cours", value = data_cours, row.names = FALSE)   
 dbWriteTable(con, append = TRUE, name = "noeuds", value = data_noeuds, row.names = FALSE)
-=======
+
   ##########  INJECTION DES DONNEES AVEC DOUBLONS ÉLIMINÉS  ################################################
 dbWriteTable(con, append = TRUE, name = "collaborations", value = collaborations, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "cours", value = o.cours, row.names = FALSE)   
 dbWriteTable(con, append = TRUE, name = "noeuds", value = noeuds, row.names = FALSE)
 #Ça serait bien d'utiliser la même forme pour chaque table soit o.nom ou seulement le 'nom'
 
->>>>>>> 30f0e6b2bc835123cf4bc8b45be955137bf511bb
+
 
 
 ##########  REQUETES  ############################################################
