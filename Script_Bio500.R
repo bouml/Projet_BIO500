@@ -178,6 +178,8 @@ db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("jameslaurie_veld
 db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("stamant_xavier")]<-"saintamant_xavier"
 
 db_collaborations$sigle[db_collaborations$sigle %in% c("tbs303")]<-"TSB303"
+db_collaborations$sigle[db_collaborations$sigle %in% c("tbS303")]<-"TSB303"
+db_collaborations$sigle[db_collaborations$sigle %in% c("TBS303")]<-"TSB303"
 
 #          ENLEVER LES DOUBLONS
 is.duplicated_collaborations <- duplicated(db_collaborations[,1:3]) 
