@@ -67,7 +67,7 @@ lefevbre_isabelle	2019	A	ecologie	1
 foukousilinou_ornella	NA	NA	ecologie	NA
 hamelin_maili	2019	A	ecologie	1
 harbeckbastien_amelie	2019	A	ecologie	1
-arsenault_benoit	2019	A	NA	NA
+arsenault_benoit	2019	A	ecologie	1
 laberge_frederic	2018	A	ecologie	1
 cloutier_zachary	2019	A	ecologie	1
 degrandmaison_amelie	2019	A	microbiologie	0
