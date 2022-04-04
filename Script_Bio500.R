@@ -76,6 +76,9 @@ collab_9= read.table("data/collaborations_martineau.txt", skip=1, header = F, se
 
 db_collaborations=rbind(collab_1,collab_2,collab_3,collab_4,collab_5,collab_6,collab_7,collab_8,collab_9)
 colnames(db_collaborations)=(c("etudiant1","etudiant2","sigle","date"))
+db_collaborations$etudiant1 <- trimws(db_collaborations$etudiant1)
+db_collaborations$etudiant2 <- trimws(db_collaborations$etudiant2)
+db_collaborations$sigle <- trimws(db_collaborations$sigle)
 
 
 #     FICHIERS COURS
@@ -94,6 +97,7 @@ cours0=rbind(c1,c2,c4,c5,c6,c7,c8,c9)
 colnames(cours0)=(c("sigle","credit","obligatoire","laboratoire","libre"))
 
 db_cours=rbind(cours0,c3)
+db_cours$sigle <- trimws(db_cours$sigle)
 
 
 #     FICHIERS NOEUDS
@@ -112,6 +116,7 @@ noeuds0=rbind(n1,n2,n3,n5,n6,n7,n8,n9)
 colnames(noeuds0)=(c("nom_prenom","annee_debut","session_debut","programme","coop"))
 
 db_noeuds=rbind(noeuds0,n4)
+db_noeuds$nom_prenom <- trimws(db_noeuds$nom_prenom)
 
 
 ##########################################################################################
