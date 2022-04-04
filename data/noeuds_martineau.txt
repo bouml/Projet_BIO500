@@ -1,0 +1,25 @@
+nom_prenom;annee_debut;session_debut;programme;coop
+boum_laurence;2019;A;ecologie;1
+roy_elisabeth;2019;A;ecologie;1
+prevosto_clara;2019;A;ecologie;1
+beland_laura;2019;A;ecologie;0
+martineau_alexandre;2013;A;ecologie;1
+beliveau_lea;2019;A;autre;0
+champagne_irlanne;NA;NA;NA;NA
+boutin_sophie;2019;A;biologie ;1
+poulin_william;2019;A;ecologie;1
+dufour_melodie;2019;H;ecologie;1
+beffort_camille;2019;A;biologie;0
+leduc_emmy;NA;NA;NA;NA
+carolemanikeu_julienne;NA;NA;NA;NA
+dagenaisquesnel_benjamin;NA;NA;ecologie;NA
+amiri_mejgan;2013;A;microbiologie;1
+koszegi_marika;2013;A;microbiologie;1
+millette_guillaume;2013;A;microbiologie;1
+robin_catherine;2013;A;ecologie;1
+dallaire_xavier;2013;A;ecologie;1
+proulx_madelaine;2013;A;ecologie;1
+lottinville_alexandre;2013;A;ecologie;1
+daraignes_leslie;2013;A;microbiologie;1
+dolbec_dominic;2013;A;microbiologie;1
+carter_laurence;2013;A;ecologie;1
