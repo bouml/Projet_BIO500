@@ -20,5 +20,5 @@ lessard_martin	2019	A	ecologie	1
 roytrudeau_laurent	2019	A	ecologie	1
 fauchon_mathieu	2019	A	ecologie	1
 poulin_william	2019	A	ecologie	1
-colle_theofil 	2019	A	ecologie	1
+colle_theofil	2019	A	ecologie	1
 jordan_florian	2019	A	ecologie	0
