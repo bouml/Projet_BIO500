@@ -147,6 +147,35 @@ db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("langlois_claudia
 db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("elisabeth_roy")]<-"roy_elisabeth"
 db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("coulombe_Jessica")]<-"coulombe_jessica"
 db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("coulombre_jessica")]<-"coulombe_jessica"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("d_hamelin_maili","hamelin_maili")]<-"dhamelin_maili"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("jameslaurie_veldon")]<-"laurie_veldonjames"
+db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("stamant_xavier")]<-"saintamant_xavier"
+
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("baubien_marie")]<-"beaubien_marie"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("bertiaume_elise")]<-"berthiaume_elise"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("stpierre_anthony")]<-"saintpierre_anthony"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("viel_lapointe")]<-"viellapointe_catherine"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("vielapointe_catherine")]<-"viellapointe_catherine"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("saintamant_xavier")]<-"stamant_xavier"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("raymon_louisphilippe")]<-"raymond_louisphilippe"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("plewenski_david")]<-"plewinski_david"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("nadonbeaumier_ed+G5:J30ouard")]<-"nadonbeaumier_edouard"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("martineau_alex")]<-"martineau_alexandre"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("leclair_oliver")]<-"leclerc_olivier"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("leclerc_oliver")]<-"leclerc_olivier"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("langlois_claudianne")]<-"langlois_claudieanne"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("elisabeth_roy")]<-"roy_elisabeth"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("coulombe_Jessica")]<-"coulombe_jessica"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("coulombre_jessica")]<-"coulombe_jessica"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("d_hamelin_maili","hamelin_maili")]<-"dhamelin_maili"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("jameslaurie_veldon")]<-"laurie_veldonjames"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("stamant_xavier")]<-"saintamant_xavier"
 
 db_collaborations$sigle[db_collaborations$sigle %in% c("tbs303")]<-"TSB303"
 
@@ -185,7 +214,8 @@ order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("cloutier_zachari","clout
 order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("stpierre_anthony")]<-"saintpierre_anthony"
 order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
 order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
-
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("hamelin_maili")]<-"dhamelin_maili"
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("stamant_xavier")]<-"saintamant_xavier"
 
 #         ENLEVER LES AUTRES DOUBLONS
 is.duplicated_noeuds <- duplicated(order_noeuds$nom_prenom)
