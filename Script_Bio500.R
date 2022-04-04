@@ -143,7 +143,7 @@ db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("elisabeth_roy")]
 db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("coulombe_Jessica")]<-"coulombe_jessica"
 db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("coulombre_jessica")]<-"coulombe_jessica"
 
-db_collaborations$sigle[db_collaborations$sigle %in% c("tbs303")]<-"TBS303"
+db_collaborations$sigle[db_collaborations$sigle %in% c("tbs303")]<-"TSB303"
 
 #          ENLEVER LES DOUBLONS
 is.duplicated_collaborations <- duplicated(db_collaborations[,1:3]) 
@@ -179,6 +179,7 @@ order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"ham
 order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
 order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("stpierre_anthony")]<-"saintpierre_anthony"
 order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
+order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
 
 
 #         ENLEVER LES AUTRES DOUBLONS
