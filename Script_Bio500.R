@@ -176,6 +176,7 @@ db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("coulombre_jessic
 db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("d_hamelin_maili","hamelin_maili")]<-"dhamelin_maili"
 db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("jameslaurie_veldon")]<-"laurie_veldonjames"
 db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("stamant_xavier")]<-"saintamant_xavier"
+db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("mathieu_fauchon")]<-"fauchon_mathieu"
 
 db_collaborations$sigle[db_collaborations$sigle %in% c("tbs303")]<-"TSB303"
 db_collaborations$sigle[db_collaborations$sigle %in% c("tbS303")]<-"TSB303"
@@ -277,5 +278,13 @@ C=L/S2
 
 
 
+# 5) Matrice d'adjacence
+library(igraph)
 
+adj_collab <- table(order_collaboration[,c(1,2)])
+etudiant2 <- as.vector(colnames(adj_collab))
+etudiant1 <- as.vector(rownames(adj_collab))
+etudiants <- cbind(etudiant1,etudiant2)
+##DONNE PAS UNE MATRICE CARRÉE
 
+##g <- graph.adjacency(adj_collab)
