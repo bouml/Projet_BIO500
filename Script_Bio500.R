@@ -189,7 +189,10 @@ sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F)
 #          METTRE EN ORDRE
 order_collaboration <- sub.collaborations[order(sub.collaborations$etudiant1),]
 
-
+#retirer une auto-collaboration
+# 1: Spotter l'auto-collab
+which(order_collaboration$etudiant1==order_collaboration$etudiant2)
+order_collaboration <- order_collaboration[-c(1936),]
 # COURS  
 #         ENLEVER LES DOUBLONS
 is.duplicated_cours <- duplicated(db_cours$sigle)
@@ -282,9 +285,15 @@ C=L/S2
 library(igraph)
 
 adj_collab <- table(order_collaboration[,c(1,2)])
-etudiant2 <- as.vector(colnames(adj_collab))
-etudiant1 <- as.vector(rownames(adj_collab))
-etudiants <- cbind(etudiant1,etudiant2)
-##DONNE PAS UNE MATRICE CARRÉE
 
-##g <- graph.adjacency(adj_collab)
+##etudiant2 <- as.vector(colnames(adj_collab))
+##etudiant1 <- as.vector(rownames(adj_collab))
+##etudiants <- cbind(etudiant1,etudiant2)
+##Pour vérifier le nombre d'étudiants si ca donne pas une matrice carrée
+
+g <- graph.adjacency(adj_collab)
+plot(g, vertex.label=NA, edge.arrow.mode = 0,
+     vertex.frame.color = NA,
+     layout = layout.circle(g))
+
+
