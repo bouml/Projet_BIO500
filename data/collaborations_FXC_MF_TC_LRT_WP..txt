@@ -126,12 +126,6 @@ poulin_william	fauchon_mathieu	BIO500	H22
 poulin_william	roytrudeau_laurent 	BIO500	H22			
 poulin_william	martineau_alexandre	BOT400	H22			
 poulin_william	blanchard_lucie	INS154	H22			
-poulin_william	dureux_mathis	INS154	H22			
-poulin_william	monny_karlen	INS154	H22			
-poulin_william	beudez_louise	INS154	H22			
-beudez_louise    	poulin_william	INS154	H22
-dureux_mathis    	poulin_william	INS154	H22
-monny_karlen    	poulin_william	INS154	H22
 roytrudeau_laurent 	beffort_camille	BIO109	H20			
 roytrudeau_laurent 	martineau_alexandre	BIO109	H20			
 roytrudeau_laurent 	poulin_william	BIO109	H20			
