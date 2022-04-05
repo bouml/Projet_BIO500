@@ -319,8 +319,8 @@ martineau_alexandre;robin_catherine;TSB303;H14
 martineau_alexandre;poulin_william;ZOO306;H20
 martineau_alexandre;colle_theofil;ZOO307;H20
 amiri_mejgan;martineau_alexandre;BCM111;H14
-brunetgirard_vicky;martineau_alexandre;BCM318;H14
-bastin_anne;martineau_alexandre;BCM318;H14
+daraignes_leslie;martineau_alexandre;BCM318;H14
+dolbec_dominic;martineau_alexandre;BCM318;H14
 millette_guillaume;martineau_alexandre;BCM318;H14
 beffort_camille;martineau_alexandre;BIO109;H20
 roytrudeau_laurent;martineau_alexandre;BIO109;H20
