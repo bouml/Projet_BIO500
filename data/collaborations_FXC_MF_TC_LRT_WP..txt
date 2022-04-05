@@ -153,4 +153,4 @@ codaire_francoisxavier	roytrudeau_laurent 	ECL403	E21
 colle_theofil	roytrudeau_laurent 	ECL404	E21			
 codaire_francoisxavier	roytrudeau_laurent 	ECL404	E21			
 poulin_william	roytrudeau_laurent 	ECL406	E21			
-lessard_martin	roytrudeau_laurent 	ECL535	E21	
+lessard_martin	roytrudeau_laurent 	ECL535	E21			
