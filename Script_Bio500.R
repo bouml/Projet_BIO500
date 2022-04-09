@@ -297,3 +297,9 @@ plot(g, vertex.label=NA, edge.arrow.mode = 0,
      layout = layout.circle(g))
 
 
+############QUESTIONS##################################################################
+#Idée de questions à répondre par oui ou non à partir d'une figure 
+#Est-ce qu'il y a des gens parmi toute la base de données qui ont travaillé plus de 10 fois avec le même coéquipier dans des projets d'équipe ? oui/non (Histogramme, x= nb de collaborations avec une même personne, y= nb de fois que x collaborations entre deux mêmes étudiants est arrivées)
+#Est-ce qu'il y a un lien entre 2 étudiants de niveau 4 ou plus ? oui/non (Histogramme, x= nb de liens entre chaque étudiant, y= nb de fois que des étudiants sont liés par x liens)
+#Est-ce qu'il y a eu 20 travaux d'équipe, ou plus, réalisés par un étudiant du cours de BIO500 ? oui/non (Nuage de points ou Histogramme (ou à partir d'un tableau?), x= étudiants du cours BIO500, y= nb de travaux d'équipe réalisés, pourra mettre une barre à y=20) 
+
