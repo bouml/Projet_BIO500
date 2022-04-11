@@ -309,12 +309,15 @@ Etudiant= order_collaboration[, c('etudiant1', 'etudiant2')]
 levs <- unique(unlist(Etudiant, use.names = FALSE))
 adjacency_matrix = table(lapply(Etudiant, factor, levs))
 
+#Réduire les marges sinon ne peut pas s'afficher
+par(mar=c(0.1,0.1,0.1,0.1))
+#Construire le graphique
 network <- graph_from_adjacency_matrix(adjacency_matrix)
 plot(network)
 #Pour enlever tous les détails dans le graph
 plot(network, vertex.label = NA, edge.arrow.mode = 0, 
      vertex.frame.color = NA)
-#Réduire les marges sinon ne peut pas s'afficher
-par(mar=c(0.1,0.1,0.1,0.1))
+#Va devoir l'arranger car ce n'est pas super de la façon qu'il est présenté
+
                                        
 
