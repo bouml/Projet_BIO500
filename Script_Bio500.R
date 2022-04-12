@@ -303,7 +303,8 @@ plot(g, vertex.label=NA, edge.arrow.mode = 0,
 #Est-ce qu'il y a un lien entre 2 étudiants de niveau 4 ou plus ? oui/non (Histogramme, x= nb de liens entre chaque étudiant, y= nb de fois que des étudiants sont liés par x liens)
 #Est-ce qu'il y a eu 20 travaux d'équipe, ou plus, réalisés par un étudiant du cours de BIO500 ? oui/non (Nuage de points ou Histogramme (ou à partir d'un tableau?), x= étudiants du cours BIO500, y= nb de travaux d'équipe réalisés, pourra mettre une barre à y=20) 
 
-#Mon essai pour faire le graph, de mon côté celui d'Alex fonctionne pas
+###########ESSAI POUR NETWORK GRAPH###################################################
+#Première option
 Etudiant= order_collaboration[, c('etudiant1', 'etudiant2')]
  levs <- unique(unlist(Etudiant, use.names = FALSE))
  adjacency_matrix = table(lapply(Etudiant, factor, levs))
@@ -315,6 +316,24 @@ network <- graph_from_adjacency_matrix(adj_collab)
 plot(network, vertex.label = NA, edge.arrow.mode = 0, 
      vertex.frame.color = NA)
 #Va devoir l'arranger car ce n'est pas super de la façon qu'il est présenté
+
+#Deuxième option avec ggplot
+#https://briatte.github.io/ggnet/ - le site à partir duquel j'ai trouvé la documentation, c'est super facile pour changer les paramètres du graph
+install.packages("network")
+library(network)
+install.packages("sna")
+library(sna)
+install.packages("ggplot2")
+library(ggplot2)
+install.packages("GGally")
+library(GGally)
+install.packages("intergraph")
+library(intergraph)
+
+simp_network=simplify(network)
+
+ggnet2(simp_network, node.size = 2, node.color = "black", edge.size = 0.5, edge.color = "grey", mode = "kamadakawai")
+    
 
                                        
 
