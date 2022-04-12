@@ -287,13 +287,13 @@ L= sum(nb_collaborations$nb_collaborations)
 C=L/S2
 
 
-
-# 5) Matrice d'adjacence
+##########################################################################################
+##########      MATRICE ADJACENCE      ###################################################
+##########################################################################################
 matrice_sql<- "
 SELECT etudiant1, etudiant2 
   FROM collaborations
-  
-;"
+  ;"
 data_matrice<- dbGetQuery(con, matrice_sql)
 show(data_matrice) 
 
@@ -312,40 +312,58 @@ plot(g, vertex.label=NA, edge.arrow.mode = 0,
      layout = layout.circle(g))
 
 
-############QUESTIONS##################################################################
-#Idée de questions à répondre par oui ou non à partir d'une figure 
-#Est-ce qu'il y a des gens parmi toute la base de données qui ont travaillé plus de 10 fois avec le même coéquipier dans des projets d'équipe ? oui/non (Histogramme, x= nb de collaborations avec une même personne, y= nb de fois que x collaborations entre deux mêmes étudiants est arrivées)
-#Est-ce qu'il y a un lien entre 2 étudiants de niveau 4 ou plus ? oui/non (Histogramme, x= nb de liens entre chaque étudiant, y= nb de fois que des étudiants sont liés par x liens)
-#Est-ce qu'il y a eu 20 travaux d'équipe, ou plus, réalisés par un étudiant du cours de BIO500 ? oui/non (Nuage de points ou Histogramme (ou à partir d'un tableau?), x= étudiants du cours BIO500, y= nb de travaux d'équipe réalisés, pourra mettre une barre à y=20) 
 
-###########ESSAI POUR NETWORK GRAPH###################################################
-#Première option
-Etudiant= order_collaboration[, c('etudiant1', 'etudiant2')]
+##########################################################################################
+##########      QUESTIONS     ############################################################
+##########################################################################################
+
+#Est-ce qu'il y a un lien entre 2 étudiants de niveau 4 ou plus ? oui/non (Histogramme, x= nb de liens entre chaque étudiant, y= nb de fois que des étudiants sont liés par x liens)
+#Calculer le bacon number des etudiants par rapport a elisabeth (ou quelqu_un d_autre)
+#Est-ce que la centralite est liee au nombre de liens
+
+
+##########################################################################################
+##########      FIGURE 1   ###############################################################
+##########################################################################################
+
+#     Première option
+
+Etudiant= data_matrice
  levs <- unique(unlist(Etudiant, use.names = FALSE))
  adjacency_matrix = table(lapply(Etudiant, factor, levs))
 #Réduire les marges sinon ne peut pas s'afficher
 par(mar=c(0.1,0.1,0.1,0.1))
 #Construire le graphique
 network <- graph_from_adjacency_matrix(adj_collab)
-#Pour enlever tous les détails dans le graph
-plot(network, vertex.label = NA, edge.arrow.mode = 0, 
+# Faire la figure
+plot(network, vertex.label=NA, edge.arrow.mode = 0,
      vertex.frame.color = NA)
-#Va devoir l'arranger car ce n'est pas super de la façon qu'il est présenté
+# Calculer le degré 
+deg=apply(adj_collab, 2, sum) + apply(adj_collab, 1, sum) 
+# Le rang pour chaque noeud
+rk=rank(deg)
+# Faire un code de couleur
+col.vec=rainbow(nrow(adj_collab))
+# Attribuer aux noeuds la couleur
+V(network)$color = col.vec[rk]
+# Refaire la figure
+plot(network, vertex.label=NA, edge.arrow.mode = 0,
+     vertex.frame.color = NA)
+# Faire un code de taille
+col.vec.taille=seq(2, 10, length.out = nrow(adj_collab))
+# Attribuer aux noeuds la couleur
+V(network)$size = col.vec.taille[rk]
+# Refaire la figure
+plot(network, vertex.label=NA, edge.arrow.mode = 0,
+     vertex.frame.color = NA)
 
-#Deuxième option avec ggplot
-#https://briatte.github.io/ggnet/ - le site à partir duquel j'ai trouvé la documentation, c'est super facile pour changer les paramètres du graph
-install.packages("network")
-library(network)
-install.packages("sna")
-library(sna)
-install.packages("ggplot2")
-library(ggplot2)
-install.packages("GGally")
-library(GGally)
-install.packages("intergraph")
-library(intergraph)
+##########################################################################################
+##########      FIGURE 2   ###############################################################
+##########################################################################################
 
-simp_network=simplify(network)
 
-ggnet2(simp_network, node.size = 2, node.color = "black", edge.size = 0.5, edge.color = "grey", mode = "kamadakawai")
 
+
+##########################################################################################
+##########      FIGURE 3   ###############################################################
+##########################################################################################
