@@ -1,8 +1,15 @@
-#setwd("/Users/laurenceboum/Desktop/met_comp/Projet_BIO500")
+#install.packages("rticles")
+#install.packages("igraph")
+#install.packages("tarchetypes")
+#nstall.packages("tinytext")
+#tinytex::install_tinytex()
 
-
-#install.packages("RSQLite")
+library(tarchetypes)
+library(igraph)
+library(rticles)
 library(RSQLite)
+library(RSQLite)
+
 con= dbConnect(SQLite(), dbname="./projet.db")
 
 dbSendQuery(con, "DROP TABLE noeuds;")
@@ -282,9 +289,17 @@ C=L/S2
 
 
 # 5) Matrice d'adjacence
-library(igraph)
+matrice_sql<- "
+SELECT etudiant1, etudiant2 
+  FROM collaborations
+  
+;"
+data_matrice<- dbGetQuery(con, matrice_sql)
+show(data_matrice) 
 
-adj_collab <- table(order_collaboration[,c(1,2)])
+adj_collab <- table(data_matrice) #Extraire les donnees de la table avec une requete au lieu de referencer directement a ordercollaboration
+
+
 
 ##etudiant2 <- as.vector(colnames(adj_collab))
 ##etudiant1 <- as.vector(rownames(adj_collab))
