@@ -360,7 +360,7 @@ plot(network, vertex.label=NA, edge.arrow.mode = 0,
 ##########################################################################################
 ##########      FIGURE 2   ###############################################################
 ##########################################################################################
-  #Existe-t-il une correlation entre le nombre de liens et la centralite
+#Existe-t-il une correlation entre le nombre de liens et la centralite
 
 par(mar=c(5,5,5,5))
 centralite=eigen_centrality(network)$vector 
@@ -372,3 +372,9 @@ cor.test(nombre_de_liens,centralite)
 ##########################################################################################
 ##########      FIGURE 3   ###############################################################
 ##########################################################################################
+par(mar=c(5,5,5,5))
+distance=distances(network)
+bacon_number=as.matrix(distance[,168])
+hist(bacon_number, xlab="Nombre de Bacon", ylab="Fréquence",main="Degrés de séparation d'Élisabeth Roy",breaks = 6)
+
+#transitivity(network,type="global", isolates = 'zero')
