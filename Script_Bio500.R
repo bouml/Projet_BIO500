@@ -349,5 +349,3 @@ simp_network=simplify(network)
 
 ggnet2(simp_network, node.size = 2, node.color = "black", edge.size = 0.5, edge.color = "grey", mode = "kamadakawai")
 
-                                       
-
