@@ -317,16 +317,16 @@ plot(g, vertex.label=NA, edge.arrow.mode = 0,
 ##########      QUESTIONS     ############################################################
 ##########################################################################################
 
-#Est-ce qu'il y a un lien entre 2 étudiants de niveau 4 ou plus ? oui/non (Histogramme, x= nb de liens entre chaque étudiant, y= nb de fois que des étudiants sont liés par x liens)
 #Calculer le bacon number des etudiants par rapport a elisabeth (ou quelqu_un d_autre)
-#Est-ce que la centralite est liee au nombre de liens
+#Existe-t-il une correlation entre le nombre de liens et la centralite
+#Est-ce que les etudiants ont tendance a faire des travaux davantage avec les gens de leur programme ou de programme different
 
 
 ##########################################################################################
 ##########      FIGURE 1   ###############################################################
 ##########################################################################################
 
-#     Première option
+# Production du reseau de liens de la totalite des etudiants 
 
 Etudiant= data_matrice
  levs <- unique(unlist(Etudiant, use.names = FALSE))
@@ -360,9 +360,14 @@ plot(network, vertex.label=NA, edge.arrow.mode = 0,
 ##########################################################################################
 ##########      FIGURE 2   ###############################################################
 ##########################################################################################
+  #Existe-t-il une correlation entre le nombre de liens et la centralite
 
+par(mar=c(5,5,5,5))
+centralite=eigen_centrality(network)$vector 
+nombre_de_liens=nb_collaborations[,2]
+plot(nombre_de_liens,centralite,pch=20,main="Relation entre la centralité et le nombre de liens", xlab = "Nombre de liens", ylab= "Centralité")
 
-
+cor.test(nombre_de_liens,centralite)
 
 ##########################################################################################
 ##########      FIGURE 3   ###############################################################
