@@ -241,11 +241,13 @@ dbWriteTable(con, append = TRUE, name = "collaborations", value = order_collabor
 dbWriteTable(con, append = TRUE, name = "cours", value = data_cours, row.names = FALSE)   
 dbWriteTable(con, append = TRUE, name = "noeuds", value = data_noeuds, row.names = FALSE)
 
+
 ##########################################################################################
 ##########      REQUETES      ############################################################
 ##########################################################################################
 
 #         1) Nombre de liens par etudiant
+
 liens_par_etudiant<- "
 SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations 
   FROM (SELECT DISTINCT etudiant1, etudiant2
@@ -257,7 +259,9 @@ SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations
 nb_collaborations <- dbGetQuery(con, liens_par_etudiant)
 show(nb_collaborations)   
 
+
 #         2) Decompte de liens par paire d_etudiants
+
 liens_par_paire<- "
 SELECT etudiant1, etudiant2, count(DISTINCT sigle) AS nb_liens
      FROM (SELECT DISTINCT etudiant1, etudiant2, sigle 
@@ -270,7 +274,9 @@ SELECT etudiant1, etudiant2, count(DISTINCT sigle) AS nb_liens
 nb_liens<- dbGetQuery(con, liens_par_paire)
 show(nb_liens) 
 
+
 #     3) Nombre d_etudiants
+
 etudiants<- "
 SELECT count(DISTINCT etudiant1) as nb_etudiants
   FROM collaborations
@@ -279,21 +285,23 @@ SELECT count(DISTINCT etudiant1) as nb_etudiants
 nb_etudiants<- dbGetQuery(con, etudiants)
 show(nb_etudiants) 
 
+
 #     4) Calcul de la connectance
-# C = L/S^2
+
+#C = L/S^2
 S2=as.numeric(nb_etudiants^2)
 L= sum(nb_collaborations$nb_collaborations)
 
 C=L/S2
 
 
-
-# 5) Matrice d'adjacence
+##########################################################################################
+##########      MATRICE ADJACENCE      ###################################################
+##########################################################################################
 matrice_sql<- "
 SELECT etudiant1, etudiant2 
   FROM collaborations
-  
-;"
+  ;"
 data_matrice<- dbGetQuery(con, matrice_sql)
 show(data_matrice) 
 
@@ -312,14 +320,22 @@ plot(g, vertex.label=NA, edge.arrow.mode = 0,
      layout = layout.circle(g))
 
 
-############QUESTIONS##################################################################
-#Idée de questions à répondre par oui ou non à partir d'une figure 
-#Est-ce qu'il y a des gens parmi toute la base de données qui ont travaillé plus de 10 fois avec le même coéquipier dans des projets d'équipe ? oui/non (Histogramme, x= nb de collaborations avec une même personne, y= nb de fois que x collaborations entre deux mêmes étudiants est arrivées)
-#Est-ce qu'il y a un lien entre 2 étudiants de niveau 4 ou plus ? oui/non (Histogramme, x= nb de liens entre chaque étudiant, y= nb de fois que des étudiants sont liés par x liens)
-#Est-ce qu'il y a eu 20 travaux d'équipe, ou plus, réalisés par un étudiant du cours de BIO500 ? oui/non (Nuage de points ou Histogramme (ou à partir d'un tableau?), x= étudiants du cours BIO500, y= nb de travaux d'équipe réalisés, pourra mettre une barre à y=20) 
 
-###########ESSAI POUR NETWORK GRAPH###################################################
-#Première option
+##########################################################################################
+##########      QUESTIONS     ############################################################
+##########################################################################################
+
+#Est-ce qu'il y a un lien entre 2 étudiants de niveau 4 ou plus ? oui/non (Histogramme, x= nb de liens entre chaque étudiant, y= nb de fois que des étudiants sont liés par x liens)
+#Calculer le bacon number des etudiants par rapport a elisabeth (ou quelqu_un d_autre)
+#Est-ce que la centralite est liee au nombre de liens
+
+
+##########################################################################################
+##########      FIGURE 1   ###############################################################
+##########################################################################################
+
+#     Première option
+
 Etudiant= order_collaboration[, c('etudiant1', 'etudiant2')]
  levs <- unique(unlist(Etudiant, use.names = FALSE))
  adjacency_matrix = table(lapply(Etudiant, factor, levs))
@@ -332,7 +348,9 @@ plot(network, vertex.label = NA, edge.arrow.mode = 0,
      vertex.frame.color = NA)
 #Va devoir l'arranger car ce n'est pas super de la façon qu'il est présenté
 
-#Deuxième option avec ggplot
+
+#     Deuxième option avec ggplot
+
 #https://briatte.github.io/ggnet/ - le site à partir duquel j'ai trouvé la documentation, c'est super facile pour changer les paramètres du graph
 install.packages("network")
 library(network)
@@ -348,6 +366,14 @@ library(intergraph)
 simp_network=simplify(network)
 
 ggnet2(simp_network, node.size = 2, node.color = "black", edge.size = 0.5, edge.color = "grey", mode = "kamadakawai")
+    
+##########################################################################################
+##########      FIGURE 2   ###############################################################
+##########################################################################################
 
-                                       
 
+
+
+##########################################################################################
+##########      FIGURE 3   ###############################################################
+##########################################################################################
