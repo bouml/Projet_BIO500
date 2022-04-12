@@ -303,7 +303,10 @@ plot(g, vertex.label=NA, edge.arrow.mode = 0,
 #Est-ce qu'il y a un lien entre 2 étudiants de niveau 4 ou plus ? oui/non (Histogramme, x= nb de liens entre chaque étudiant, y= nb de fois que des étudiants sont liés par x liens)
 #Est-ce qu'il y a eu 20 travaux d'équipe, ou plus, réalisés par un étudiant du cours de BIO500 ? oui/non (Nuage de points ou Histogramme (ou à partir d'un tableau?), x= étudiants du cours BIO500, y= nb de travaux d'équipe réalisés, pourra mettre une barre à y=20) 
 
-
+#Mon essai pour faire le graph, de mon côté celui d'Alex fonctionne pas
+Etudiant= order_collaboration[, c('etudiant1', 'etudiant2')]
+ levs <- unique(unlist(Etudiant, use.names = FALSE))
+ adjacency_matrix = table(lapply(Etudiant, factor, levs))
 #Réduire les marges sinon ne peut pas s'afficher
 par(mar=c(0.1,0.1,0.1,0.1))
 #Construire le graphique
