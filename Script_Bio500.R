@@ -382,6 +382,9 @@ plot(nombre_de_liens,centralite,pch=20,main="Relation entre la centralité et le
 
 cor.test(nombre_de_liens,centralite)
 
+corr<-data.frame(nombre_de_liens,centralite)
+kiwi<-lm(centralite~nombre_de_liens, data=corr)
+summary(kiwi)
 ##########################################################################################
 ##########      FIGURE 3   ###############################################################
 ##########################################################################################
