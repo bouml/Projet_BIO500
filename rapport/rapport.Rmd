@@ -3,7 +3,15 @@ title: Exemple de rapport `Rmarkdown` en sortie d'un pipeline `targets`
 
 # Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
 author:
-  - name: Benjamin Mercier
+  - name: Alexandre Martineau
+    affiliation: a
+  - name: Clara Prévosto
+    affiliation: a
+  - name: Élisabeth Roy
+    affiliation: a
+  - name: Laura Béland
+    affiliation: a
+  - name: Laurence Boum
     affiliation: a
 
 address:
@@ -54,8 +62,8 @@ La méthode utilisée pour la lecture, le nettoyage, l'injection des données et
 # Résultats
 
 La figure 1 montre la position des étudiants en fonction du nombre de lien les un par rapport aux autres. 
-La figure 2 représente la corrélation entre la centralité et le nombre de lien des étudiants. La corrélation entre ces deux facteurs n'est pas significative, car la relation n'Est pas linéaire avec un P-value de 0,2493.
-
+La figure 2 représente la corrélation entre la centralité et le nombre de lien des étudiants. La corrélation entre ces deux facteurs n'est pas significative, car la relation n'est pas linéaire, car la corrélation a un P-value de 0,2493.
+La figure 3 représente le degré de séparation par rapport à un individue. Dans ce cas si, en prennant Élisabeth Roy comme individue, la fréquence est plus élevé plus le degré de séparation est élevé.
 
 # Discussion
 
