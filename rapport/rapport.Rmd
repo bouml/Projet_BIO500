@@ -49,59 +49,11 @@ eveniunt medioque Phoronide viros.
 
 # Méthode
 
-Les différentes méthodes utilisées pour la lecture des données se séparent en différentes catégories.
-Il y a la lecture des données, le nettoyage des données, l'injection des données dans une base de données et les requêtes pour l'optention des différentes figures.
-Toutes ces étapes furent exécuter dans le logiciel R avec l'utilisation de Github pour le stockage et le partage des données et des différents codes.
-
-
-## Première partie
-
-Lorem markdownum et est, an mane luctu iugis ignibus in hostia peragit dum eadem
-equinis, par gradus ubi! Silet canities sine dedecet, fides virum capro:
-loquuntur ante. Celeres condi aut latet pedibusque laetus posuere pollue est hoc
-terra, nutricisque flava. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubila coloribus adventus divesque. Loca partibus breve et unum maior stellis inpia et
-luporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet,
-solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubilacoloribus adventus divesque. Loca partibus breve et unum maior stellis inpia etluporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet, solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum.
-
-Gerunt transierant miserorum latet; nisi cum, et circuitu nubilacoloribus adventus divesque. Loca partibus breve et unum maior stellis inpia etluporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet, solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum.
-
-## Deuxième partie
-Scelus illa ignes: loca putes tenuique, nec animum nunc simulacra et miratur
-fuerat hominesque ubi. Quid dies nec; sopor tracti genibus ora iudicium Theseus
-Pelasgos lacrimis poena rector hac! Nitidum dextro. Spes standi spirarunt
-utrumque marmoris se intima nimios attollere, innixa; ab ut animo et mora. Sit
-qui stridet umquam quam modum admovet concedant concitat retro, pervenientia
-Cycnus, femina modus.
+La méthode utilisée pour la lecture, le nettoyage, l'injection des données et l'analyse des différentes données fut l'utilisation de code dans R et l'utilisation de GitHub pour le partage des données et le stockages.
 
 # Résultats
 
-Tyriam et Cererem secura genetivaque exiguo an mitra sine omnem siderea attollit
-missa. Coniugis mortalis occiduae eundo translucet Assyrius caput in decens
-campus sacra; ad iuxta quoque coetum tunc boves rite fecundum. Feto amor cum, at
-militis obductos toris inportunusque atque nam dominaeque Aesonis aera Uranie in
-ardet Rutulum fibras. Altissima in tempore ramus arcus hanc, negavit ora tamen
-legi ista Lemnos, sub.
-
-**Voici comment inclure une figure .pdf préalablement générée et la citer/référencer dans le texte, via son `label`: Figure \ref{fig:plot1}**. 
-
-Amnis novos illuc cultusque: parvoque nimiumque murra simplicitas.
-
-![Espace pour graphique de régression linéaire. \label{fig:plot1}]("../results/plot_lm.pdf"){ width=50% height=40%}
-
-Lorem markdownum et est, an mane luctu iugis ignibus in hostia peragit dum eadem
-equinis, par gradus ubi! Silet canities sine dedecet, fides virum capro:
-loquuntur ante. Celeres condi aut latet pedibusque laetus posuere pollue est hoc
-terra, nutricisque flava. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubila coloribus adventus divesque. Loca partibus breve et unum maior stellis inpia et
-luporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet,
-solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubilacoloribus adventus divesque. Loca partibus breve et unum maior stellis inpia etluporum. Loca partibus breve et unum maior stellis inpia etluporum.
-
-
-Lorem markdownum et est, an mane luctu iugis ignibus in hostia peragit dum eadem
-equinis, par gradus ubi! Silet canities sine dedecet, fides virum capro:
-loquuntur ante. Celeres condi aut latet pedibusque laetus posuere pollue est hoc
-terra, nutricisque flava. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubila coloribus adventus divesque. Loca partibus breve et unum maior stellis inpia et
-luporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet,
-solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubilacoloribus adventus divesque. Loca partibus breve et unum maior stellis inpia etluporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet, solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum.
+Les résultats obtenues sont
 
 # Discussion
 
