@@ -49,7 +49,8 @@ output: rticles::pnas_article
 
 # Introduction
 **Voici un exemple de citation @berard1994embedding, et en voici deux autres [@berard1994embedding;@belkin2002using;@coifman2005geometric].** 
-Le but de ce rapport est de voir si le réseau de collaboration des étudiant du cours de BIO500 de l'université de Sherbrooke à l'hiver 2022 ont les mêmes propriétés qu'un réseau écologique typique d'un environnement naturel. Pour le savoir, quelques question furent possées et répondues dans ce rapport. Les questions étant de savoir s'il existe une correlation entre le nombre de liens des étudiants entre eux et leur centralité par rapport au réseau de liens des étudiants. Par la suite, le calcul du Bacon number d'un des étudiants pour calculer la distance entre les étudiants. 
+Comme mentionné dans plusieurs études écologiques, les différents organismes d'un environnement donné sont tous liés entre eux par différents lien qui les unis. Ces liens correspondent à leur réseau de connection et permettent de voir l'impacte qu'une espèce aurait sur le reste de la population présente. Dans cette optique, il est possible de voir si les relations humaines pourraient avoir le même type de lien au niveau sociale.
+Ainsi, le but de ce rapport est de voir si le réseau de collaboration des étudiant du cours de BIO500 de l'université de Sherbrooke à l'hiver 2022 ont les mêmes propriétés qu'un réseau écologique typique d'un environnement naturel. Pour le savoir, nous cherchons à savoir s'il existe une correlation entre le nombre de liens des étudiants entre eux et leur centralité dans leur réseau de liens. Par la suite, le calcul du Bacon number d'un des étudiants pour calculer la distance entre les étudiants. 
 
 # Méthode
 
