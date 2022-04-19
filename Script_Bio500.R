@@ -9,6 +9,7 @@ library(igraph)
 library(rticles)
 library(RSQLite)
 library(RSQLite)
+library(dplyr)
 
 con= dbConnect(SQLite(), dbname="./projet.db")
 
@@ -36,7 +37,7 @@ dbSendQuery(con, noeuds_sql) #Envoie l'information a la table
 #     TABLE COURS
 cours_sql= 'CREATE TABLE cours (
   sigle CHAR(6) NOT NULL,
-  credit INTEGER(1) ,
+  credits INTEGER(1) ,
   obligatoire BOOLEAN(1),
   laboratoire BOOLEAN(1),
   libre BOOLEAN(1),
@@ -71,15 +72,15 @@ dbListTables(con)
 ##########################################################################################
 
 #     FICHIERS COLLABORATION 
-collab_1= read.table("data/collaboration_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
-collab_2= read.csv("data/collaborations_amelie.csv", skip = 1, header=F,sep = ";")
-collab_3= read.table("data/collaborations_anthonystp.txt", skip=1, header = F, sep= ";")
-collab_4= read.csv("data/collaborations_cvl_jl_jl_mp_xs.csv", skip = 1, header=F,sep = ";")
-collab_5= read.csv("data/collaborations_DP-GL-LB-ML-VQ_txt.csv", skip = 1, header=F,sep = ";", colClasses = c("character","character", "character", "character", "NULL"))
-collab_6= read.table("data/collaborations_FXC_MF_TC_LRT_WP..txt", skip=1, header = F, sep= "\t", colClasses = c("character","character", "character", "character", "NULL", "NULL","NULL"))
-collab_7= read.table("data/collaborations_IL_MDH_ASP_MB_OL.txt", skip=1, header = F, sep= ";", colClasses = c("character","character", "character", "character", "NULL"))
-collab_8= read.table("data/collaborations_jbcaldlvjlgr.txt", skip=1, header = F, sep= ";")
-collab_9= read.table("data/collaborations_martineau.txt", skip=1, header = F, sep= ";")
+collab_1= read.csv("data/collaborations_Alexis_Nadya_Edouard_Penelope.csv", sep = ";" )
+collab_2= read.csv("data/collaborations_amelie.csv", sep = ";")
+collab_3= read.csv("data/collaborations_anthonystp.csv", sep = ";")
+collab_4= read.csv("data/collaborations_cvl_jl_jl_mp_xs.csv", sep = ";")
+collab_5= read.csv("data/collaborations_DP-GL-LB-ML-VQ_txt.csv", sep = ";")
+collab_6= read.csv("data/collaborations_FXC_MF_TC_LRT_WP.csv", sep = ";")
+collab_7= read.csv("data/collaborations_IL_MDH_ASP_MB_OL.csv", sep = ";")
+collab_8= read.csv("data/collaborations_jbcaldlvjlgr.csv", sep = ";")
+collab_9= read.csv("data/collaborations_martineau.csv", sep = ";")
 
 db_collaborations=rbind(collab_1,collab_2,collab_3,collab_4,collab_5,collab_6,collab_7,collab_8,collab_9)
 colnames(db_collaborations)=(c("etudiant1","etudiant2","sigle","date"))
@@ -89,35 +90,33 @@ db_collaborations$sigle <- trimws(db_collaborations$sigle)
 
 
 #     FICHIERS COURS
-c1= read.table("data/Cours_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
-c2= read.csv("data/cours_amelie.csv", skip = 1, header=F,sep = ";",colClasses = c("character","integer","integer","integer","integer","NULL", "NULL"))
-c3= read.table("data/cours_anthonystp.txt", skip=1, header = F, sep= ";",colClasses = c("character","integer","integer","integer","NULL","integer"))
-colnames(c3)=(c("sigle","credit","obligatoire","laboratoire","libre"))
-c4= read.csv("data/cours_cvl_jl_jl_mp_xs.csv", skip = 1, header=F,sep = ";")
-c5= read.csv("data/cours_DP-GL-LB-ML-VQ_txt.csv", skip = 1, header=F,sep = ";",)
-c6= read.table("data/cours_FXC_MF_TC_LRT_WP..txt", skip=1, header = F, sep= "\t")
-c7= read.table("data/cours_IL_MDH_ASP_MB_OL.txt", skip=1, header = F, sep= ";")
-c8= read.table("data/cours_jbcaldlvjlgr.txt", skip=1, header = F, sep= ";")
-c9= read.table("data/cours_martineau.txt", skip=1, header = F, sep= ";")
+c1= read.csv("data/cours_Alexis_Nadya_Edouard_Penelope.csv", sep = ";" )
+c2= read.csv("data/cours_amelie.csv", sep = ";")
+c3= read.csv("data/cours_anthonystp.csv", sep = ";")
+c4= read.csv("data/cours_cvl_jl_jl_mp_xs.csv", sep = ";")
+c5= read.csv("data/cours_DP-GL-LB-ML-VQ_txt.csv", sep = ";")
+c6= read.csv("data/cours_FXC_MF_TC_LRT_WP.csv", sep = ";")
+c7= read.csv("data/cours_IL_MDH_ASP_MB_OL.csv", sep = ";")
+c8= read.csv("data/cours_jbcaldlvjlgr.csv", sep = ";")
+c9= read.csv("data/cours_martineau.csv", sep = ";")
 
 cours0=rbind(c1,c2,c4,c5,c6,c7,c8,c9)
-colnames(cours0)=(c("sigle","credit","obligatoire","laboratoire","libre"))
+colnames(cours0)=(c("sigle","credits","obligatoire","laboratoire","libre"))
 
 db_cours=rbind(cours0,c3)
 db_cours$sigle <- trimws(db_cours$sigle)
 
 
 #     FICHIERS NOEUDS
-n1= read.table("data/etudiant_Alexis_Nadya_Edouard_Penelope.txt",skip = 1, header=F, sep ="\t" )
-n2= read.csv("data/noeuds_amelie.csv", skip = 1, header=F,sep = ";")
-n3= read.table("data/noeuds_anthonystp .txt", skip=1, header = F, sep= ";")
-n4= read.csv("data/noeuds_cvl_jl_jl_mp_xs.csv", skip = 1, header=F,sep = ";",colClasses = c("NULL","character", "integer", "character", "character", "integer"))
-colnames(n4)=(c("nom_prenom","annee_debut","session_debut","programme","coop"))
-n5= read.csv("data/noeuds_DP-GL-LB-ML-VQ_txt.csv", skip = 1, header=F,sep = ";")
-n6= read.table("data/noeuds_FXC_MF_TC_LRT_WP.txt", skip=1, header = F, sep= "\t",)
-n7= read.table("data/etudiant_IL_MDH_ASP_MB_OL.txt", skip=1, header = F, sep= ";")
-n8= read.table("data/noeuds_jbcaldlvjlgr.txt", skip=1, header = F, sep= ";")
-n9= read.table("data/noeuds_martineau.txt", skip=1, header = F, sep= ";")
+n1= read.csv("data/noeuds_Alexis_Nadya_Edouard_Penelope.csv", sep = ";" )
+n2= read.csv("data/noeuds_amelie.csv", sep = ";")
+n3= read.csv("data/noeuds_anthonystp.csv", sep = ";")
+n4= read.csv("data/noeuds_cvl_jl_jl_mp_xs.csv", sep = ";")
+n5= read.csv("data/noeuds_DP-GL-LB-ML-VQ_txt.csv", sep = ";")
+n6= read.csv("data/noeuds_FXC_MF_TC_LRT_WP.csv", sep = ";")
+n7= read.csv("data/noeuds_IL_MDH_ASP_MB_OL.csv", sep = ";")
+n8= read.csv("data/noeuds_jbcaldlvjlgr.csv", sep = ";")
+n9= read.csv("data/noeuds_martineau.csv", sep = ";")
 
 noeuds0=rbind(n1,n2,n3,n5,n6,n7,n8,n9)
 colnames(noeuds0)=(c("nom_prenom","annee_debut","session_debut","programme","coop"))
