@@ -49,21 +49,10 @@ eveniunt medioque Phoronide viros.
 
 # Méthode
 
-Per recepto pugnes. Soror est adiit nusquam, in arserunt nondum tempore
-bracchia. Pater tempora limen. Falcata parentibus dolor et vobis aranea! Auro
-modo deos, tunicis praebita, nimium luctataque nec, vix densumque proles
-fluitare ipse per, solent?
-Pondera abrumpit cum quaeque iuris. Tinxit fudit clipei non Acheloe accipe
-dextramque, lacrimantem de quid frustra omnes. Indigenae exta quamque modo meae,
-detur idem curas prope erat. Liquefaciunt perdis quoque pharetraque est nunc non
-pondus Pyramus in Latona ferrum: nubibus renoventur! Fallacia sonuit Proreus,
-aurora: omen cur a moenia ore ego narret, ego. Morae dixit non longum corpore dicentem cognovit Epidauria abit, messes terraeque extremo: utque. Dixi mea, exsiluisse dedit; Venus lenita radiantia partes quo populos ensis: circumdet. Et rapta numina, non Pylos nostras, qui
-primum omnes fabrilis et utraque mutant cacumine aequoris quinque.
+Les différentes méthodes utilisées pour la lecture des données se séparent en différentes catégories.
+Il y a la lecture des données, le nettoyage des données, l'injection des données dans une base de données et les requêtes pour l'optention des différentes figures.
+Toutes ces étapes furent exécuter dans le logiciel R avec l'utilisation de Github pour le stockage et le partage des données et des différents codes.
 
-
-Lorem markdownum moveo flagellis torusque monte maestisque praemia arces
-coniunx, qui fuit? Nec cinctam natus. Defossos egregius. Imago una paterno
-pavido me chlamydis civilique feros.
 
 ## Première partie
 
