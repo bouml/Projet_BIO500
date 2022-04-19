@@ -49,11 +49,7 @@ output: rticles::pnas_article
 
 # Introduction
 **Voici un exemple de citation @berard1994embedding, et en voici deux autres [@berard1994embedding;@belkin2002using;@coifman2005geometric].** 
-Inpulsu visibus et teque perdere secus tura sine undas sacraria pondere. Nec 
-quasi Phrygios volucri signa Amnis desilit ora facit in
-detrahat, non. Et iuvencae sitim natum, sit quid ut sibi nec ardeat, pressa
-fassaque. Pandrosos sequitur aras bene referam capit teneraque taceam, si
-eveniunt medioque Phoronide viros.
+Le but de ce rapport est de voir si le réseau de collaboration des étudiant du cours de BIO500 de l'université de Sherbrooke à l'hiver 2022 ont les mêmes propriétés qu'un réseau écologique typique d'un environnement naturel. Pour le savoir, quelques question furent possées et répondues dans ce rapport. Les questions étant de savoir s'il existe une correlation entre le nombre de liens des étudiants entre eux et leur centralité par rapport au réseau de liens des étudiants. Par la suite, le calcul du Bacon number d'un des étudiants pour calculer la distance entre les étudiants. 
 
 # Méthode
 
