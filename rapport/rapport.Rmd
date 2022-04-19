@@ -29,11 +29,11 @@ abstract: |
   testataque, novo tumidum.
 
 keywords:
-  - Mot-clé
-  - Mot-clé
-  - Optionel
-  - Optionel
-  - Optionel
+  - Bacon number
+  - Centralité
+  - Collaboration
+  - Liens 
+  - Réseaux
 
 ## must be one of: pnasresearcharticle (usual two-column layout), pnasmathematics (one column layout), or pnasinvited (invited submissions only)
 pnas_type: pnasresearcharticle
