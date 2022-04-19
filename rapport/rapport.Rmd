@@ -43,6 +43,7 @@ output: rticles::pnas_article
 **Voici un exemple de citation @berard1994embedding, et en voici deux autres [@berard1994embedding;@belkin2002using;@coifman2005geometric].** 
 Spécifier questions
 
+
 # Méthode et résultats
 
 Per recepto pugnes. Soror est adiit nusquam, in arserunt nondum tempore
@@ -61,36 +62,13 @@ Lorem markdownum moveo flagellis torusque monte maestisque praemia arces
 coniunx, qui fuit? Nec cinctam natus. Defossos egregius. Imago una paterno
 pavido me chlamydis civilique feros.
 
-
-# Résultats
-
-Tyriam et Cererem secura genetivaque exiguo an mitra sine omnem siderea attollit
-missa. Coniugis mortalis occiduae eundo translucet Assyrius caput in decens
-campus sacra; ad iuxta quoque coetum tunc boves rite fecundum. Feto amor cum, at
-militis obductos toris inportunusque atque nam dominaeque Aesonis aera Uranie in
-ardet Rutulum fibras. Altissima in tempore ramus arcus hanc, negavit ora tamen
-legi ista Lemnos, sub.
-
 **Voici comment inclure une figure .pdf préalablement générée et la citer/référencer dans le texte, via son `label`: Figure \ref{fig:plot1}**. 
 
 Amnis novos illuc cultusque: parvoque nimiumque murra simplicitas.
 
 ![Espace pour graphique de régression linéaire. \label{fig:plot1}]("../results/plot_lm.pdf"){ width=50% height=40%}
 
-Lorem markdownum et est, an mane luctu iugis ignibus in hostia peragit dum eadem
-equinis, par gradus ubi! Silet canities sine dedecet, fides virum capro:
-loquuntur ante. Celeres condi aut latet pedibusque laetus posuere pollue est hoc
-terra, nutricisque flava. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubila coloribus adventus divesque. Loca partibus breve et unum maior stellis inpia et
-luporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet,
-solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubilacoloribus adventus divesque. Loca partibus breve et unum maior stellis inpia etluporum. Loca partibus breve et unum maior stellis inpia etluporum.
 
-
-Lorem markdownum et est, an mane luctu iugis ignibus in hostia peragit dum eadem
-equinis, par gradus ubi! Silet canities sine dedecet, fides virum capro:
-loquuntur ante. Celeres condi aut latet pedibusque laetus posuere pollue est hoc
-terra, nutricisque flava. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubila coloribus adventus divesque. Loca partibus breve et unum maior stellis inpia et
-luporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet,
-solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubilacoloribus adventus divesque. Loca partibus breve et unum maior stellis inpia etluporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet, solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum.
 
 # Discussion
 
