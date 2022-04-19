@@ -53,7 +53,9 @@ La méthode utilisée pour la lecture, le nettoyage, l'injection des données et
 
 # Résultats
 
-Les résultats obtenues sont
+La figure 1 montre la position des étudiants en fonction du nombre de lien. 
+La figure 2 représente la corrélation entre la centralité et le nombre de lien des étudiants. La corrélation entre ces deux facteurs n'est pas significative, car la relation n'Est pas linéaire avec un P-value de 0,2493.
+
 
 # Discussion
 
