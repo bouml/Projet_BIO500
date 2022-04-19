@@ -394,3 +394,6 @@ bacon_number=as.matrix(distance[,168])
 hist(bacon_number, xlab="Nombre de Bacon", ylab="Fréquence",main="Degrés de séparation d'Élisabeth Roy",breaks = 6)
 
 #transitivity(network,type="global", isolates = 'zero')
+
+dbDisconnect(con)
+
