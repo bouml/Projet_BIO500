@@ -41,13 +41,9 @@ output: rticles::pnas_article
 
 # Introduction
 **Voici un exemple de citation @berard1994embedding, et en voici deux autres [@berard1994embedding;@belkin2002using;@coifman2005geometric].** 
-Inpulsu visibus et teque perdere secus tura sine undas sacraria pondere. Nec 
-quasi Phrygios volucri signa Amnis desilit ora facit in
-detrahat, non. Et iuvencae sitim natum, sit quid ut sibi nec ardeat, pressa
-fassaque. Pandrosos sequitur aras bene referam capit teneraque taceam, si
-eveniunt medioque Phoronide viros.
+Spécifier questions
 
-# Méthode
+# Méthode et résultats
 
 Per recepto pugnes. Soror est adiit nusquam, in arserunt nondum tempore
 bracchia. Pater tempora limen. Falcata parentibus dolor et vobis aranea! Auro
@@ -65,24 +61,6 @@ Lorem markdownum moveo flagellis torusque monte maestisque praemia arces
 coniunx, qui fuit? Nec cinctam natus. Defossos egregius. Imago una paterno
 pavido me chlamydis civilique feros.
 
-## Première partie
-
-Lorem markdownum et est, an mane luctu iugis ignibus in hostia peragit dum eadem
-equinis, par gradus ubi! Silet canities sine dedecet, fides virum capro:
-loquuntur ante. Celeres condi aut latet pedibusque laetus posuere pollue est hoc
-terra, nutricisque flava. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubila coloribus adventus divesque. Loca partibus breve et unum maior stellis inpia et
-luporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet,
-solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubilacoloribus adventus divesque. Loca partibus breve et unum maior stellis inpia etluporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet, solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum.
-
-Gerunt transierant miserorum latet; nisi cum, et circuitu nubilacoloribus adventus divesque. Loca partibus breve et unum maior stellis inpia etluporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet, solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum.
-
-## Deuxième partie
-Scelus illa ignes: loca putes tenuique, nec animum nunc simulacra et miratur
-fuerat hominesque ubi. Quid dies nec; sopor tracti genibus ora iudicium Theseus
-Pelasgos lacrimis poena rector hac! Nitidum dextro. Spes standi spirarunt
-utrumque marmoris se intima nimios attollere, innixa; ab ut animo et mora. Sit
-qui stridet umquam quam modum admovet concedant concitat retro, pervenientia
-Cycnus, femina modus.
 
 # Résultats
 
