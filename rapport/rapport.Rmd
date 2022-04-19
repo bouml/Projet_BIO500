@@ -49,7 +49,7 @@ eveniunt medioque Phoronide viros.
 
 # Méthode
 
-La méthode utilisée pour la lecture, le nettoyage, l'injection des données et l'analyse des différentes données fut l'utilisation de code dans R et l'utilisation de GitHub pour le partage des données et le stockages.
+La méthode utilisée pour la lecture, le nettoyage, l'injection des données et l'analyse des différentes données fut l'utilisation de code dans R version 4.1.3 et l'utilisation de GitHub pour le partage des données et le stockages.
 
 # Résultats
 
