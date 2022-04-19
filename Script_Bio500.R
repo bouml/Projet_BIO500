@@ -72,57 +72,71 @@ dbListTables(con)
 ##########################################################################################
 
 #     FICHIERS COLLABORATION 
-collab_1= read.csv("data/collaborations_Alexis_Nadya_Edouard_Penelope.csv", sep = ";" )
-collab_2= read.csv("data/collaborations_amelie.csv", sep = ";")
-collab_3= read.csv("data/collaborations_anthonystp.csv", sep = ";")
-collab_4= read.csv("data/collaborations_cvl_jl_jl_mp_xs.csv", sep = ";")
-collab_5= read.csv("data/collaborations_DP-GL-LB-ML-VQ_txt.csv", sep = ";")
-collab_6= read.csv("data/collaborations_FXC_MF_TC_LRT_WP.csv", sep = ";")
-collab_7= read.csv("data/collaborations_IL_MDH_ASP_MB_OL.csv", sep = ";")
-collab_8= read.csv("data/collaborations_jbcaldlvjlgr.csv", sep = ";")
-collab_9= read.csv("data/collaborations_martineau.csv", sep = ";")
+##collab_1= read.csv("data/collaborations_Alexis_Nadya_Edouard_Penelope.csv", sep = ";" )
+##collab_2= read.csv("data/collaborations_amelie.csv", sep = ";")
+##collab_3= read.csv("data/collaborations_anthonystp.csv", sep = ";")
+##collab_4= read.csv("data/collaborations_cvl_jl_jl_mp_xs.csv", sep = ";")
+##collab_5= read.csv("data/collaborations_DP-GL-LB-ML-VQ_txt.csv", sep = ";")
+##collab_6= read.csv("data/collaborations_FXC_MF_TC_LRT_WP.csv", sep = ";")
+##collab_7= read.csv("data/collaborations_IL_MDH_ASP_MB_OL.csv", sep = ";")
+##collab_8= read.csv("data/collaborations_jbcaldlvjlgr.csv", sep = ";")
+##collab_9= read.csv("data/collaborations_martineau.csv", sep = ";")
 
-db_collaborations=rbind(collab_1,collab_2,collab_3,collab_4,collab_5,collab_6,collab_7,collab_8,collab_9)
-colnames(db_collaborations)=(c("etudiant1","etudiant2","sigle","date"))
-db_collaborations$etudiant1 <- trimws(db_collaborations$etudiant1)
-db_collaborations$etudiant2 <- trimws(db_collaborations$etudiant2)
-db_collaborations$sigle <- trimws(db_collaborations$sigle)
+##db_collaborations=rbind(collab_1,collab_2,collab_3,collab_4,collab_5,collab_6,collab_7,collab_8,collab_9)
+##colnames(db_collaborations)=(c("etudiant1","etudiant2","sigle","date"))
+
+temp_collab = list.files(path="data/", pattern = "collab", full.names=T)
+mycollabs = lapply(temp_collab, read.csv2)
+db_collaborations = do.call(rbind, mycollabs)
+
+##db_collaborations$etudiant1 <- trimws(db_collaborations$etudiant1)
+##db_collaborations$etudiant2 <- trimws(db_collaborations$etudiant2)
+##db_collaborations$sigle <- trimws(db_collaborations$sigle)
 
 
 #     FICHIERS COURS
-c1= read.csv("data/cours_Alexis_Nadya_Edouard_Penelope.csv", sep = ";" )
-c2= read.csv("data/cours_amelie.csv", sep = ";")
-c3= read.csv("data/cours_anthonystp.csv", sep = ";")
-c4= read.csv("data/cours_cvl_jl_jl_mp_xs.csv", sep = ";")
-c5= read.csv("data/cours_DP-GL-LB-ML-VQ_txt.csv", sep = ";")
-c6= read.csv("data/cours_FXC_MF_TC_LRT_WP.csv", sep = ";")
-c7= read.csv("data/cours_IL_MDH_ASP_MB_OL.csv", sep = ";")
-c8= read.csv("data/cours_jbcaldlvjlgr.csv", sep = ";")
-c9= read.csv("data/cours_martineau.csv", sep = ";")
+##c1= read.csv("data/cours_Alexis_Nadya_Edouard_Penelope.csv", sep = ";" )
+##c2= read.csv("data/cours_amelie.csv", sep = ";")
+##c3= read.csv("data/cours_anthonystp.csv", sep = ";")
+##c4= read.csv("data/cours_cvl_jl_jl_mp_xs.csv", sep = ";")
+##c5= read.csv("data/cours_DP-GL-LB-ML-VQ_txt.csv", sep = ";")
+##c6= read.csv("data/cours_FXC_MF_TC_LRT_WP.csv", sep = ";")
+##c7= read.csv("data/cours_IL_MDH_ASP_MB_OL.csv", sep = ";")
+##c8= read.csv("data/cours_jbcaldlvjlgr.csv", sep = ";")
+##c9= read.csv("data/cours_martineau.csv", sep = ";")
 
-cours0=rbind(c1,c2,c4,c5,c6,c7,c8,c9)
-colnames(cours0)=(c("sigle","credits","obligatoire","laboratoire","libre"))
+##cours0=rbind(c1,c2,c4,c5,c6,c7,c8,c9)
+##colnames(cours0)=(c("sigle","credits","obligatoire","laboratoire","libre"))
 
-db_cours=rbind(cours0,c3)
-db_cours$sigle <- trimws(db_cours$sigle)
+##db_cours=rbind(cours0,c3)
+temp_cours = list.files(path="data/", pattern = "cours", full.names=T)
+mycours = lapply(temp_cours, read.csv2)
+db_cours = do.call(rbind, mycours)
+
+##db_cours$sigle <- trimws(db_cours$sigle)
 
 
 #     FICHIERS NOEUDS
-n1= read.csv("data/noeuds_Alexis_Nadya_Edouard_Penelope.csv", sep = ";" )
-n2= read.csv("data/noeuds_amelie.csv", sep = ";")
-n3= read.csv("data/noeuds_anthonystp.csv", sep = ";")
-n4= read.csv("data/noeuds_cvl_jl_jl_mp_xs.csv", sep = ";")
-n5= read.csv("data/noeuds_DP-GL-LB-ML-VQ_txt.csv", sep = ";")
-n6= read.csv("data/noeuds_FXC_MF_TC_LRT_WP.csv", sep = ";")
-n7= read.csv("data/noeuds_IL_MDH_ASP_MB_OL.csv", sep = ";")
-n8= read.csv("data/noeuds_jbcaldlvjlgr.csv", sep = ";")
-n9= read.csv("data/noeuds_martineau.csv", sep = ";")
+##n1= read.csv("data/noeuds_Alexis_Nadya_Edouard_Penelope.csv", sep = ";" )
+##n2= read.csv("data/noeuds_amelie.csv", sep = ";")
+##n3= read.csv("data/noeuds_anthonystp.csv", sep = ";")
+##n4= read.csv("data/noeuds_cvl_jl_jl_mp_xs.csv", sep = ";")
+##n5= read.csv("data/noeuds_DP-GL-LB-ML-VQ_txt.csv", sep = ";")
+##n6= read.csv("data/noeuds_FXC_MF_TC_LRT_WP.csv", sep = ";")
+##n7= read.csv("data/noeuds_IL_MDH_ASP_MB_OL.csv", sep = ";")
+##n8= read.csv("data/noeuds_jbcaldlvjlgr.csv", sep = ";")
+##n9= read.csv("data/noeuds_martineau.csv", sep = ";")
 
-noeuds0=rbind(n1,n2,n3,n5,n6,n7,n8,n9)
-colnames(noeuds0)=(c("nom_prenom","annee_debut","session_debut","programme","coop"))
+##noeuds0=rbind(n1,n2,n3,n5,n6,n7,n8,n9)
+##colnames(noeuds0)=(c("nom_prenom","annee_debut","session_debut","programme","coop"))
 
-db_noeuds=rbind(noeuds0,n4)
-db_noeuds$nom_prenom <- trimws(db_noeuds$nom_prenom)
+##db_noeuds=rbind(noeuds0,n4)
+
+temp_noeuds = list.files(path="data/", pattern = "noeuds", full.names=T)
+mynoeuds = lapply(temp_noeuds, read.csv2)
+db_noeuds = do.call(rbind, mynoeuds)
+
+##db_noeuds$nom_prenom <- trimws(db_noeuds$nom_prenom)
 
 
 ##########################################################################################
