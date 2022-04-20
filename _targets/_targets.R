@@ -18,6 +18,7 @@ list(
     table_clean_noeuds, doublon_free_noeuds(table_noeuds)),
   tar_target(
     table_clean_cours, doublon_free_cours(table_cours)),
+  #Le sql fonctionne pas pour l'instant
   tar_target(
     table_collab_sql, table_collab_sql_f(table_collab)),
   tar_target(
