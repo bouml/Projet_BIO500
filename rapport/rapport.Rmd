@@ -63,30 +63,11 @@ La figure 2 représente la corrélation entre la centralité et le nombre de lie
 La figure 3 représente le degré de séparation par rapport à un individue. Dans ce cas si, en prennant Élisabeth Roy comme individue, la fréquence est plus élevé plus le degré de séparation est élevé.
 
 # Discussion
+Discussion Figure 1 (Eli)
 
-Per recepto pugnes. Soror est adiit nusquam, in arserunt nondum tempore
-bracchia. Pater tempora limen. Falcata parentibus dolor et vobis aranea! Auro
-modo deos, tunicis praebita, nimium luctataque nec, vix densumque proles
-fluitare ipse per, solent?
-Pondera abrumpit cum quaeque iuris. Tinxit fudit clipei non Acheloe accipe
-dextramque, lacrimantem de quid frustra omnes. Indigenae exta quamque modo meae,
-detur idem curas prope erat. Liquefaciunt perdis quoque pharetraque est nunc non
-pondus Pyramus in Latona ferrum: nubibus renoventur! Fallacia sonuit Proreus,
-aurora: omen cur a moenia ore ego narret, ego. Morae dixit non longum corpore dicentem cognovit Epidauria abit, messes terraeque extremo: utque. Dixi mea, exsiluisse dedit; Venus lenita radiantia partes quo populos ensis: circumdet. Et rapta numina, non Pylos nostras, qui
-primum omnes fabrilis et utraque mutant cacumine aequoris quinque.
+Discussion Figure 2 (Boum)
 
-Ligavit cetera et infelix nescius, sinu timorem admonitu ferrove exspectatas
-fuerant pulcherrime, mea sonum! Formae munera, est trahendo regem supplice.
-Verba lacrimis gradus, verbis iam tempore aratri sed, at imagine momordit. Teque
-esse, ante pariter desere in quae: illa socium inque meae: et ipso canos:
-peteretis? Temptanda Daedalus et palmis incumbere tempora ambit.
-
-Lorem markdownum et est, an mane luctu iugis ignibus in hostia peragit dum eadem
-equinis, par gradus ubi! Silet canities sine dedecet, fides virum capro:
-loquuntur ante. Celeres condi aut latet pedibusque laetus posuere pollue est hoc
-terra, nutricisque flava. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubila coloribus adventus divesque. Loca partibus breve et unum maior stellis inpia et
-luporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet,
-solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum. Eurytus auris. Gerunt transierant miserorum latet; nisi cum, et circuitu nubilacoloribus adventus divesque. Loca partibus breve et unum maior stellis inpia etluporum. Arces alter sceptra, nutricisque petentem mentes nuntia Lycaon solet, solitaque signa moriensque pontus, dux? Corpora testataque, novo tumidum.
+Discussion Figure 3 (Eli)
 
 # Conclusion
 
