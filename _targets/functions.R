@@ -52,3 +52,47 @@ doublon_free_cours <- function() {
   order_cours <- sub.cours[order(sub.cours$etudiant1),]
 }
 
+###############CRÉER LES TABLES SQL ET INJECTER L'INFORMATION DANS LES TABLES########################################
+#Pour collaboration
+table_collab_sql_f <- function() {
+collab_sql= 'CREATE TABLE collaborations (
+  etudiant1 VARCHAR(50) NOT NULL,
+  etudiant2 VARCHAR(50) NOT NULL,
+  sigle CHAR(6),                                        
+  date DATE(3),
+  PRIMARY KEY (etudiant1, etudiant2, sigle)
+  FOREIGN KEY (etudiant1) REFERENCES noeuds(nom_prenom)
+  FOREIGN KEY (etudiant2) REFERENCES noeuds(nom_prenom)
+  FOREIGN KEY (sigle) REFERENCES cours(sigle)   
+);'
+dbSendQuery(con, collab_sql) 
+dbWriteTable(con, append = TRUE, name = "collaborations", value = order_collaboration, row.names = FALSE)
+}
+
+#Pour noeuds
+table_noeuds_sql_f <- function() {
+noeuds_sql= 'CREATE TABLE noeuds (
+  nom_prenom VARCHAR(50) NOT NULL,
+  annee_debut DATE(4),
+  session_debut CHAR(1),
+  programme VARCHAR(20),
+  coop BOOLEAN(1),
+  PRIMARY KEY (nom_prenom)
+);'
+dbSendQuery(con, noeuds_sql) 
+dbWriteTable(con, append = TRUE, name = "noeuds", value = order_noeuds, row.names = FALSE)
+}
+
+#Pour cours
+table_cours_sql_f <- function() {
+cours_sql= 'CREATE TABLE cours (
+  sigle CHAR(6) NOT NULL,
+  credits INTEGER(1) ,
+  obligatoire BOOLEAN(1),
+  laboratoire BOOLEAN(1),
+  libre BOOLEAN(1),
+  PRIMARY KEY (sigle)
+);'
+dbSendQuery(con, cours_sql) 
+dbWriteTable(con, append = TRUE, name = "cours", value = order_cours, row.names = FALSE)   
+}
