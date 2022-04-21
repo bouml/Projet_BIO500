@@ -55,7 +55,7 @@ doublon_free_cours <- function() {
 ###############CRÉER LES TABLES SQL ET INJECTER L'INFORMATION DANS LES TABLES########################################
 #Pour collaboration
 table_collab_sql_f <- function() {
-collab_sql= 'CREATE TABLE collaborations (
+'CREATE TABLE collaborations (
   etudiant1 VARCHAR(50) NOT NULL,
   etudiant2 VARCHAR(50) NOT NULL,
   sigle CHAR(6),                                        
@@ -71,7 +71,7 @@ dbWriteTable(con, append = TRUE, name = "collaborations", value = order_collabor
 
 #Pour noeuds
 table_noeuds_sql_f <- function() {
-noeuds_sql= 'CREATE TABLE noeuds (
+'CREATE TABLE noeuds (
   nom_prenom VARCHAR(50) NOT NULL,
   annee_debut DATE(4),
   session_debut CHAR(1),
@@ -85,7 +85,7 @@ dbWriteTable(con, append = TRUE, name = "noeuds", value = order_noeuds, row.name
 
 #Pour cours
 table_cours_sql_f <- function() {
-cours_sql= 'CREATE TABLE cours (
+'CREATE TABLE cours (
   sigle CHAR(6) NOT NULL,
   credits INTEGER(1) ,
   obligatoire BOOLEAN(1),
@@ -95,4 +95,114 @@ cours_sql= 'CREATE TABLE cours (
 );'
 dbSendQuery(con, cours_sql) 
 dbWriteTable(con, append = TRUE, name = "cours", value = order_cours, row.names = FALSE)   
+}
+
+###############REQUÊTES SQL#########################################################
+# 1) Nombre de liens par etudiant
+liens_par_etudiant_f <- function() {
+liens_par_etudiant = "
+SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations 
+  FROM (SELECT DISTINCT etudiant1, etudiant2
+    FROM collaborations)
+
+  GROUP BY etudiant1
+  ORDER BY nb_collaborations
+;"
+nb_collaborations <- dbGetQuery(con, liens_par_etudiant)
+show(nb_collaborations) 
+}
+
+# 2) Decompte de liens par paire d_etudiants
+lien_par_paire_etudiant_f <- function() {
+liens_par_paire <- "
+SELECT etudiant1, etudiant2, count(DISTINCT sigle) AS nb_liens
+     FROM (SELECT DISTINCT etudiant1, etudiant2, sigle 
+      FROM collaborations)
+    
+     
+     GROUP BY etudiant1, etudiant2
+     ORDER BY nb_liens
+;"
+nb_liens<- dbGetQuery(con, liens_par_paire)
+show(nb_liens) 
+}
+
+# 3) Nombre d_etudiants
+nb_etudiant_f <- function() {
+etudiants <- "
+SELECT count(DISTINCT etudiant1) as nb_etudiants
+  FROM collaborations
+  
+;"
+nb_etudiants<- dbGetQuery(con, etudiants)
+show(nb_etudiants) 
+}
+
+# 4) Calcul de la connectance
+calcul_connectance <- function() {
+S2=as.numeric(nb_etudiants^2)
+L= sum(nb_collaborations$nb_collaborations)
+C=L/S2
+}
+
+##################MATRICE D'ADJACENCE#############################################################
+matrice_adjacence_f <- function() {
+matrice_sql<- "
+SELECT etudiant1, etudiant2 
+  FROM collaborations
+  ;"
+data_matrice<- dbGetQuery(con, matrice_sql)
+show(data_matrice) 
+adj_collab <- table(data_matrice)
+}
+
+#################FIGURES##########################################################################
+# 1) Production du reseau de liens de la totalite des etudiants 
+reaseau_f <- function() {
+#Réduire les marges sinon ne peut pas s'afficher
+par(mar=c(0.1,0.1,0.1,0.1))
+#Construire le graphique
+network <- graph_from_adjacency_matrix(adj_collab)
+}
+
+figure_un_f <- funtion() {
+# Faire la figure
+plot(network, vertex.label=NA, edge.arrow.mode = 0,
+     vertex.frame.color = NA)
+# Calculer le degré 
+deg=apply(adj_collab, 2, sum) + apply(adj_collab, 1, sum) 
+# Le rang pour chaque noeud
+rk=rank(deg)
+# Faire un code de couleur
+col.vec=rainbow(nrow(adj_collab))
+# Attribuer aux noeuds la couleur
+V(network)$color = col.vec[rk]
+# Refaire la figure
+plot(network, vertex.label=NA, edge.arrow.mode = 0,
+     vertex.frame.color = NA)
+# Faire un code de taille
+col.vec.taille=seq(2, 10, length.out = nrow(adj_collab))
+# Attribuer aux noeuds la couleur
+V(network)$size = col.vec.taille[rk]
+# Refaire la figure
+plot(network, vertex.label=NA, edge.arrow.mode = 0,
+     vertex.frame.color = NA)
+}
+
+# 2) Existe-t-il une correlation entre le nombre de liens et la centralite
+
+figure_deux_f <- function() {
+  par(mar=c(5,5,5,5))
+centralite=eigen_centrality(network)$vector 
+nombre_de_liens=nb_collaborations[,2]
+plot(nombre_de_liens,centralite,pch=20,main="Relation entre la centralité et le nombre de liens", xlab = "Nombre de liens", ylab= "Centralité")
+cor.test(nombre_de_liens,centralite)
+}
+
+# 3) Calculer le bacon number des etudiants par rapport a elisabeth 
+figure_trois_f <- function() {
+par(mar=c(5,5,5,5))
+distance=distances(network)
+bacon_number=as.matrix(distance[,168])
+hist(bacon_number, xlab="Nombre de Bacon", ylab="Fréquence",main="Degrés de séparation d'Élisabeth Roy",breaks = 6)
 }
