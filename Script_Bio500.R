@@ -319,6 +319,7 @@ adj_collab <- table(data_matrice) #Extraire les donnees de la table avec une req
 ##etudiants <- cbind(etudiant1,etudiant2)
 ##Pour vérifier le nombre d'étudiants si ca donne pas une matrice carrée
 
+#EST-CE QU'ON PEUT ENLEVER ÇA, SERT À QQU CHOSE ?
 g <- graph.adjacency(adj_collab)
 plot(g, vertex.label=NA, edge.arrow.mode = 0,
      vertex.frame.color = NA,
@@ -341,9 +342,11 @@ plot(g, vertex.label=NA, edge.arrow.mode = 0,
 
 # Production du reseau de liens de la totalite des etudiants 
 
+#EST-CE QU'ON PEUT ENLEVER ÇA, SERT À QQU CHOSE ?
 Etudiant= data_matrice
- levs <- unique(unlist(Etudiant, use.names = FALSE))
- adjacency_matrix = table(lapply(Etudiant, factor, levs))
+levs <- unique(unlist(Etudiant, use.names = FALSE))
+adjacency_matrix = table(lapply(Etudiant, factor, levs))
+
 #Réduire les marges sinon ne peut pas s'afficher
 par(mar=c(0.1,0.1,0.1,0.1))
 #Construire le graphique
