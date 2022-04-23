@@ -250,14 +250,12 @@ matrice_adjacence_f <- function(data) {
 #################FIGURES##########################################################################
 # 1) Production du reseau de liens de la totalite des etudiants 
 reseau_f <- function(adj_collab) {
-#Réduire les marges sinon ne peut pas s'afficher
-
-#Construire le graphique
-network <- graph_from_adjacency_matrix(adj_collab)
+  network <- graph_from_adjacency_matrix(adj_collab)
 }
 
 figure_un_f <- function(network,adj_collab) {
   pdf(file = "results/reseau.pdf")
+  #Réduire les marges 
   par(mar=c(0.1,0.1,2,0.1))
   # Calculer le degré 
   deg=apply(adj_collab, 2, sum) + apply(adj_collab, 1, sum) 
