@@ -251,15 +251,14 @@ matrice_adjacence_f <- function(data) {
 # 1) Production du reseau de liens de la totalite des etudiants 
 reseau_f <- function(adj_collab) {
 #Réduire les marges sinon ne peut pas s'afficher
-par(mar=c(0.1,0.1,0.1,0.1))
+
 #Construire le graphique
 network <- graph_from_adjacency_matrix(adj_collab)
 }
 
 figure_un_f <- function(network,adj_collab) {
-  # Faire la figure
-  plot(network, vertex.label=NA, edge.arrow.mode = 0,
-     vertex.frame.color = NA)
+  pdf(file = "results/reseau.pdf")
+  par(mar=c(0.1,0.1,2,0.1))
   # Calculer le degré 
   deg=apply(adj_collab, 2, sum) + apply(adj_collab, 1, sum) 
   # Le rang pour chaque noeud
@@ -268,33 +267,32 @@ figure_un_f <- function(network,adj_collab) {
   col.vec=rainbow(nrow(adj_collab))
   # Attribuer aux noeuds la couleur
   V(network)$color = col.vec[rk]
-  # Refaire la figure
-  plot(network, vertex.label=NA, edge.arrow.mode = 0,
-     vertex.frame.color = NA)
   # Faire un code de taille
   col.vec.taille=seq(2, 10, length.out = nrow(adj_collab))
   # Attribuer aux noeuds la couleur
   V(network)$size = col.vec.taille[rk]
   # Refaire la figure
   plot(network, vertex.label=NA, edge.arrow.mode = 0,
-     vertex.frame.color = NA)
+     vertex.frame.color = NA, main="Reseau de collaborations de la cohorte 2019-2022")
 }
 
 # 2) Existe-t-il une correlation entre le nombre de liens et la centralite
 
 figure_deux_f <- function(network,nb_collaborations) {
+  pdf(file = "results/centralite.pdf")
   par(mar=c(5,5,5,5))
   centralite=eigen_centrality(network)$vector 
   nombre_de_liens=nb_collaborations[,2]
-  plot(nombre_de_liens,centralite,pch=20,main="Relation entre la centralité et le nombre de liens", 
-     xlab = "Nombre de liens", ylab= "Centralité")
+  plot(nombre_de_liens,centralite,pch=20,main="Relation entre la centralite et le nombre de liens", 
+     xlab = "Nombre de liens", ylab= "Centralite")
   cor.test(nombre_de_liens,centralite)
 }
 
 # 3) Calculer le bacon number des etudiants par rapport a elisabeth 
 figure_trois_f <- function(network) {
+  pdf(file = "results/bacon.pdf")
   par(mar=c(5,5,5,5))
   distance=distances(network)
   bacon_number=as.matrix(distance[,168])
-  hist(bacon_number, xlab="Nombre de Bacon", ylab="Fréquence",main="Degrés de séparation d'Élisabeth Roy",breaks = 6)
+  hist(bacon_number, xlab="Nombre de Bacon", ylab="Frequence",main="Degres de separation d'Elisabeth Roy",breaks = 6)
 }
