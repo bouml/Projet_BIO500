@@ -1,11 +1,11 @@
 ##################IN CASE###################################################
-tar_edit()
-install.packages("usethis")
-library("usethis")
-tar_script()
-tar_glimpse()
-tar_make()
-tar_visnetwork()
+##tar_edit()
+##install.packages("usethis")
+##library("usethis")
+##tar_script()
+##tar_glimpse()
+##tar_make()
+##tar_visnetwork()
 
 ##################UPLOADER DONNÉES##########################################
 #Pour collab
@@ -165,7 +165,7 @@ par(mar=c(0.1,0.1,0.1,0.1))
 network <- graph_from_adjacency_matrix(adj_collab)
 }
 
-figure_un_f <- funtion() {
+figure_un_f <- function() {
 # Faire la figure
 plot(network, vertex.label=NA, edge.arrow.mode = 0,
      vertex.frame.color = NA)
