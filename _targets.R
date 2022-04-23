@@ -1,11 +1,14 @@
 library(targets)
 library(tarchetypes)
 tar_option_set(packages = c("rmarkdown",
-                            "knitr","usethis"))
+                            "knitr","usethis","RSQLite","igraph"))
 
 source("R/functions.R")
 
 list(
+  tar_target(
+    db,
+    create_db()),
   tar_target(
     table_collab, 
     table_collab_f()),
@@ -26,13 +29,13 @@ list(
     doublon_free_cours(table_cours)),
   tar_target(
     table_collab_sql, 
-    table_collab_sql_f(table_clean_collab)),
+    table_collab_sql_f(db, table_clean_collab)),
   tar_target(
     table_noeuds_sql, 
-    table_noeuds_sql_f(table_clean_noeuds)),
+    table_noeuds_sql_f(db, table_clean_noeuds)),
   tar_target(
     table_cours_sql, 
-    table_cours_sql_f(table_clean_cours)),
+    table_cours_sql_f(db, table_clean_cours)),
   tar_target(
     requete_nb_collab, 
     liens_par_etudiant_f(table_collab_sql)),
@@ -44,7 +47,7 @@ list(
     nb_etudiant_f(table_collab_sql)),
   tar_target(
     connectance, 
-    calcul_connectance(table_clean_noeuds, table_clean_collab)),
+    calcul_connectance(nb_etudiant, requete_nb_collab)),
   tar_target(
     matrice_adjacence, 
     matrice_adjacence_f(table_collab_sql)),

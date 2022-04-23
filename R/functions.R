@@ -8,25 +8,30 @@
 ##tar_visnetwork()
 
 ##################UPLOADER DONNÉES##########################################
+#Create DB
+create_db <- function() {
+  con <- dbConnect(SQLite(), dbname = "./projet.db")
+  on.exit(dbDisconnect(con))
+}
 #Pour collab
 table_collab_f <- function() {
-  temp_collab = list.files(path="data/", pattern = "collab", full.names=T)
-  mycollabs = lapply(temp_collab, read.csv2)
-  db_collaborations = do.call(rbind, mycollabs)
+  temp_collab <- list.files(path="data/", pattern = "collab", full.names=T)
+  mycollabs <- lapply(temp_collab, read.csv2)
+  db_collaborations <- do.call(rbind, mycollabs)
 }
 
 #Pour noeuds
 table_noeuds_f <- function() {
-  temp_noeuds = list.files(path="data/", pattern = "noeuds", full.names=T)
-  mynoeuds = lapply(temp_noeuds, read.csv2)
-  db_noeuds = do.call(rbind, mynoeuds)
+  temp_noeuds <- list.files(path="data/", pattern = "noeuds", full.names=T)
+  mynoeuds <- lapply(temp_noeuds, read.csv2)
+  db_noeuds <- do.call(rbind, mynoeuds)
 }
 
 #Pour cours
 table_cours_f <- function() {
-  temp_cours = list.files(path="data/", pattern = "cours", full.names=T)
-  mycours = lapply(temp_cours, read.csv2)
-  db_cours = do.call(rbind, mycours)
+  temp_cours <- list.files(path="data/", pattern = "cours", full.names=T)
+  mycours <- lapply(temp_cours, read.csv2)
+  db_cours <- do.call(rbind, mycours)
 }
 
 #pas fait l'étape pour enlever les erreurs j'imagine que ça va être spécifique à chaque script
@@ -124,8 +129,11 @@ doublon_free_cours <- function(db_cours) {
 
 ###############CRÉER LES TABLES SQL ET INJECTER L'INFORMATION DANS LES TABLES########################################
 #Pour collaboration
-table_collab_sql_f <- function() {
-'CREATE TABLE collaborations (
+table_collab_sql_f <- function(db, order_collaboration) {
+  con <- dbConnect(SQLite(), dbname = "./projet.db")
+  on.exit(dbDisconnect(con))
+  dbSendQuery(con, "DROP TABLE collaborations;")
+  collab_sql <- 'CREATE TABLE collaborations (
   etudiant1 VARCHAR(50) NOT NULL,
   etudiant2 VARCHAR(50) NOT NULL,
   sigle CHAR(6),                                        
@@ -134,145 +142,159 @@ table_collab_sql_f <- function() {
   FOREIGN KEY (etudiant1) REFERENCES noeuds(nom_prenom)
   FOREIGN KEY (etudiant2) REFERENCES noeuds(nom_prenom)
   FOREIGN KEY (sigle) REFERENCES cours(sigle)   
-);'
-dbSendQuery(con, collab_sql) 
-dbWriteTable(con, append = TRUE, name = "collaborations", value = order_collaboration, row.names = FALSE)
+  );'
+  dbSendQuery(con, collab_sql) 
+  dbWriteTable(con, append = TRUE, name = "collaborations", value = order_collaboration, row.names = FALSE)
+  dbReadTable(con, "collaborations")
 }
 
 #Pour noeuds
-table_noeuds_sql_f <- function() {
-'CREATE TABLE noeuds (
+table_noeuds_sql_f <- function(db, order_noeuds) {
+  con <- dbConnect(SQLite(), dbname = "./projet.db")
+  on.exit(dbDisconnect(con))
+  dbSendQuery(con, "DROP TABLE noeuds;")
+  noeuds_sql <- 'CREATE TABLE noeuds (
   nom_prenom VARCHAR(50) NOT NULL,
   annee_debut DATE(4),
   session_debut CHAR(1),
   programme VARCHAR(20),
   coop BOOLEAN(1),
   PRIMARY KEY (nom_prenom)
-);'
-dbSendQuery(con, noeuds_sql) 
-dbWriteTable(con, append = TRUE, name = "noeuds", value = order_noeuds, row.names = FALSE)
+  );'
+  dbSendQuery(con, noeuds_sql) 
+  dbWriteTable(con, append = TRUE, name = "noeuds", value = order_noeuds, row.names = FALSE)
+  dbReadTable(con, "noeuds")
 }
 
 #Pour cours
-table_cours_sql_f <- function() {
-'CREATE TABLE cours (
+table_cours_sql_f <- function(db, order_cours) {
+  con <- dbConnect(SQLite(), dbname = "./projet.db")
+  on.exit(dbDisconnect(con))
+  dbSendQuery(con, "DROP TABLE cours;")
+  cours_sql <- 'CREATE TABLE cours (
   sigle CHAR(6) NOT NULL,
   credits INTEGER(1) ,
   obligatoire BOOLEAN(1),
   laboratoire BOOLEAN(1),
   libre BOOLEAN(1),
   PRIMARY KEY (sigle)
-);'
-dbSendQuery(con, cours_sql) 
-dbWriteTable(con, append = TRUE, name = "cours", value = order_cours, row.names = FALSE)   
+  );'
+  dbSendQuery(con, cours_sql) 
+  dbWriteTable(con, append = TRUE, name = "cours", value = order_cours, row.names = FALSE)
+  dbReadTable(con, "cours")
 }
 
 ###############REQUÊTES SQL#########################################################
 # 1) Nombre de liens par etudiant
-liens_par_etudiant_f <- function() {
-liens_par_etudiant = "
-SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations 
+liens_par_etudiant_f <- function(data) {
+  con <- dbConnect(SQLite(), dbname = "./projet.db")
+  on.exit(dbDisconnect(con))
+  liens_par_etudiant <-
+  "SELECT etudiant1, count(DISTINCT etudiant2) AS nb_collaborations 
   FROM (SELECT DISTINCT etudiant1, etudiant2
     FROM collaborations)
 
   GROUP BY etudiant1
   ORDER BY nb_collaborations
-;"
-nb_collaborations <- dbGetQuery(con, liens_par_etudiant)
-show(nb_collaborations) 
+  ;"
+  nb_collaborations <- dbGetQuery(con, liens_par_etudiant)
 }
 
 # 2) Decompte de liens par paire d_etudiants
-lien_par_paire_etudiant_f <- function() {
-liens_par_paire <- "
-SELECT etudiant1, etudiant2, count(DISTINCT sigle) AS nb_liens
+lien_par_paire_etudiant_f <- function(data) {
+  con <- dbConnect(SQLite(), dbname = "./projet.db")
+  on.exit(dbDisconnect(con))
+  liens_par_paire <- "
+  SELECT etudiant1, etudiant2, count(DISTINCT sigle) AS nb_liens
      FROM (SELECT DISTINCT etudiant1, etudiant2, sigle 
       FROM collaborations)
     
      
      GROUP BY etudiant1, etudiant2
      ORDER BY nb_liens
-;"
-nb_liens<- dbGetQuery(con, liens_par_paire)
-show(nb_liens) 
+  ;"
+  nb_liens<- dbGetQuery(con, liens_par_paire)
 }
 
 # 3) Nombre d_etudiants
-nb_etudiant_f <- function() {
-etudiants <- "
-SELECT count(DISTINCT etudiant1) as nb_etudiants
+nb_etudiant_f <- function(data) {
+  con <- dbConnect(SQLite(), dbname = "./projet.db")
+  on.exit(dbDisconnect(con))
+  etudiants <- "
+  SELECT count(DISTINCT etudiant1) as nb_etudiants
   FROM collaborations
   
-;"
-nb_etudiants<- dbGetQuery(con, etudiants)
-show(nb_etudiants) 
+  ;"
+  nb_etudiants<- dbGetQuery(con, etudiants)
 }
 
 # 4) Calcul de la connectance
-calcul_connectance <- function() {
-S2=as.numeric(nb_etudiants^2)
-L= sum(nb_collaborations$nb_collaborations)
-C=L/S2
+calcul_connectance <- function(nb_etudiants,nb_collaborations) {
+  S2=as.numeric(nb_etudiants^2)
+  L= sum(nb_collaborations$nb_collaborations)
+  C=L/S2
 }
 
 ##################MATRICE D'ADJACENCE#############################################################
-matrice_adjacence_f <- function() {
-matrice_sql<- "
-SELECT etudiant1, etudiant2 
+matrice_adjacence_f <- function(data) {
+  con <- dbConnect(SQLite(), dbname = "./projet.db")
+  on.exit(dbDisconnect(con))
+  matrice_sql<- "
+  SELECT etudiant1, etudiant2 
   FROM collaborations
   ;"
-data_matrice<- dbGetQuery(con, matrice_sql)
-show(data_matrice) 
-adj_collab <- table(data_matrice)
+  data_matrice<- dbGetQuery(con, matrice_sql)
+  adj_collab <- table(data_matrice)
 }
 
 #################FIGURES##########################################################################
 # 1) Production du reseau de liens de la totalite des etudiants 
-reseau_f <- function() {
+reseau_f <- function(adj_collab) {
 #Réduire les marges sinon ne peut pas s'afficher
 par(mar=c(0.1,0.1,0.1,0.1))
 #Construire le graphique
 network <- graph_from_adjacency_matrix(adj_collab)
 }
 
-figure_un_f <- function() {
-# Faire la figure
-plot(network, vertex.label=NA, edge.arrow.mode = 0,
+figure_un_f <- function(network,adj_collab) {
+  # Faire la figure
+  plot(network, vertex.label=NA, edge.arrow.mode = 0,
      vertex.frame.color = NA)
-# Calculer le degré 
-deg=apply(adj_collab, 2, sum) + apply(adj_collab, 1, sum) 
-# Le rang pour chaque noeud
-rk=rank(deg)
-# Faire un code de couleur
-col.vec=rainbow(nrow(adj_collab))
-# Attribuer aux noeuds la couleur
-V(network)$color = col.vec[rk]
-# Refaire la figure
-plot(network, vertex.label=NA, edge.arrow.mode = 0,
+  # Calculer le degré 
+  deg=apply(adj_collab, 2, sum) + apply(adj_collab, 1, sum) 
+  # Le rang pour chaque noeud
+  rk=rank(deg)
+  # Faire un code de couleur
+  col.vec=rainbow(nrow(adj_collab))
+  # Attribuer aux noeuds la couleur
+  V(network)$color = col.vec[rk]
+  # Refaire la figure
+  plot(network, vertex.label=NA, edge.arrow.mode = 0,
      vertex.frame.color = NA)
-# Faire un code de taille
-col.vec.taille=seq(2, 10, length.out = nrow(adj_collab))
-# Attribuer aux noeuds la couleur
-V(network)$size = col.vec.taille[rk]
-# Refaire la figure
-plot(network, vertex.label=NA, edge.arrow.mode = 0,
+  # Faire un code de taille
+  col.vec.taille=seq(2, 10, length.out = nrow(adj_collab))
+  # Attribuer aux noeuds la couleur
+  V(network)$size = col.vec.taille[rk]
+  # Refaire la figure
+  plot(network, vertex.label=NA, edge.arrow.mode = 0,
      vertex.frame.color = NA)
 }
 
 # 2) Existe-t-il une correlation entre le nombre de liens et la centralite
 
-figure_deux_f <- function() {
+figure_deux_f <- function(network,nb_collaborations) {
   par(mar=c(5,5,5,5))
-centralite=eigen_centrality(network)$vector 
-nombre_de_liens=nb_collaborations[,2]
-plot(nombre_de_liens,centralite,pch=20,main="Relation entre la centralité et le nombre de liens", xlab = "Nombre de liens", ylab= "Centralité")
-cor.test(nombre_de_liens,centralite)
+  centralite=eigen_centrality(network)$vector 
+  nombre_de_liens=nb_collaborations[,2]
+  plot(nombre_de_liens,centralite,pch=20,main="Relation entre la centralité et le nombre de liens", 
+     xlab = "Nombre de liens", ylab= "Centralité")
+  cor.test(nombre_de_liens,centralite)
 }
 
 # 3) Calculer le bacon number des etudiants par rapport a elisabeth 
-figure_trois_f <- function() {
-par(mar=c(5,5,5,5))
-distance=distances(network)
-bacon_number=as.matrix(distance[,168])
-hist(bacon_number, xlab="Nombre de Bacon", ylab="Fréquence",main="Degrés de séparation d'Élisabeth Roy",breaks = 6)
+figure_trois_f <- function(network) {
+  par(mar=c(5,5,5,5))
+  distance=distances(network)
+  bacon_number=as.matrix(distance[,168])
+  hist(bacon_number, xlab="Nombre de Bacon", ylab="Fréquence",main="Degrés de séparation d'Élisabeth Roy",breaks = 6)
 }

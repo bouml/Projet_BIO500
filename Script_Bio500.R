@@ -246,9 +246,9 @@ order_noeuds <- sub.noeuds[order(sub.noeuds$nom_prenom),]
 ##########################################################################################
 ##########  INJECTION DES DONNEES          ###############################################
 ##########################################################################################
-dbWriteTable(con, append = TRUE, name = "collaborations", value = order_collaboration, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "cours", value = data_cours, row.names = FALSE)   
-dbWriteTable(con, append = TRUE, name = "noeuds", value = order_noeuds, row.names = FALSE)
+dbWriteTable(con, overwrite = TRUE, name = "collaborations", value = order_collaboration, row.names = FALSE)
+dbWriteTable(con, overwrite = TRUE, name = "cours", value = data_cours, row.names = FALSE)   
+dbWriteTable(con, overwrite = TRUE, name = "noeuds", value = order_noeuds, row.names = FALSE)
 
 ##########################################################################################
 ##########      REQUETES      ############################################################
