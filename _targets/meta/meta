@@ -1,9 +1,9 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 calcul_connectance|function|23d1f46beb5a9963|||||||||||||||
 data|stem|88b4dde6065eb78b|4d28b3ae61066c9f|15669340fa0be499|1588979285||t19105.597764753s|c5d164050871107a|452|rds|local|vector|||0.14||
-doublon_free_collab|function|8e7f1df2b9308db4|||||||||||||||
-doublon_free_cours|function|4e905c700beb3746|||||||||||||||
-doublon_free_noeuds|function|6f33ba14ca195b23|||||||||||||||
+doublon_free_collab|function|c4c70f7c457b1cdb|||||||||||||||
+doublon_free_cours|function|019f3573e7101489|||||||||||||||
+doublon_free_noeuds|function|2e87bf3b15bf7b51|||||||||||||||
 figure_deux_f|function|dbf221585b081888|||||||||||||||
 figure_trois_f|function|b43a55135c075324|||||||||||||||
 figure_un_f|function|bab827a778472398|||||||||||||||
@@ -14,9 +14,12 @@ nb_etudiant_f|function|3087502841f43753|||||||||||||||
 reaseau_f|function|104248ad68af3b3a|||||||||||||||
 summ|function|725b50cbf04a3ed2|||||||||||||||
 summary|stem|869a73c1cb45dd95|504e748dde9ca536|be764fa8bed89a95|760118442||t19105.5977652507s|b6284359ec2a2750|125|rds|local|vector|||0.01||
-table_clean_collab|stem||43d36163528cce7c|4c1da4611f696a22|-1269191457||t19105.6045271482s||0|rds|local|vector|||0||unused argument table_collab
+table_clean_collab|stem|951fe7cf28a3fd73|43d36163528cce7c|727877066a191aa9|-1269191457||t19105.6303721072s|91ffd2a3e5fe18f6|16055|rds|local|vector|||0.24|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3|
+table_clean_cours|stem|872068f4bd524fc0|5a6f51e6a1ab4d55|5472b7e3db0de05f|-1533497059||t19105.6376614276s|00a6daeef03e8bb7|617|rds|local|vector|||0.11|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3|
+table_clean_noeuds|stem|5f72bdd2b872f11c|c5be3d66e955459a|cd63ae800c089664|9281674||t19105.638077155s|0d4cd34763bbcfc0|3052|rds|local|vector|||0.12|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3|
 table_collab|stem|a093120cb2cf1726|4174891bd287d8bb|055326a74251b6b2|-2101174807||t19105.6045243934s|0468c1dc4a6a3fc0|11784|rds|local|vector|||0.23|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3|
 table_collab_f|function|afc0229907e68287|||||||||||||||
+table_collab_sql|stem||b06b6270608a2aac|39386964b6c57428|825859213||t19105.6380774443s||0|rds|local|vector|||0||unused argument table_clean_collab
 table_collab_sql_f|function|bb28998cad0065ae|||||||||||||||
 table_cours|stem|cd577d82da3c0c91|e878bc07555b5dc6|2ac6002e951ae6c2|1148376836||t19105.6045257245s|f6b78395403300bf|876|rds|local|vector|||0.06||
 table_cours_f|function|60a9889043492d20|||||||||||||||

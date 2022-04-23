@@ -32,24 +32,94 @@ table_cours_f <- function() {
 #pas fait l'étape pour enlever les erreurs j'imagine que ça va être spécifique à chaque script
 ###############ENLEVER LES DOUBLONS + METTRE EN ORDRE#########################################
 #Pour collab
-doublon_free_collab <- function() {
+doublon_free_collab <- function(db_collaborations) {
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("baubien_marie")]<-"beaubien_marie"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("bertiaume_elise")]<-"berthiaume_elise"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("stpierre_anthony")]<-"saintpierre_anthony"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("viel_lapointe")]<-"viellapointe_catherine"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("vielapointe_catherine")]<-"viellapointe_catherine"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("saintamant_xavier")]<-"stamant_xavier"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("raymon_louisphilippe")]<-"raymond_louisphilippe"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("plewenski_david")]<-"plewinski_david"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("nadonbeaumier_ed+G5:J30ouard")]<-"nadonbeaumier_edouard"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("martineau_alex")]<-"martineau_alexandre"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("leclair_oliver")]<-"leclerc_olivier"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("leclerc_oliver")]<-"leclerc_olivier"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("langlois_claudianne")]<-"langlois_claudieanne"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("elisabeth_roy")]<-"roy_elisabeth"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("coulombe_Jessica")]<-"coulombe_jessica"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("coulombre_jessica")]<-"coulombe_jessica"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("d_hamelin_maili","hamelin_maili")]<-"dhamelin_maili"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("jameslaurie_veldon")]<-"laurie_veldonjames"
+  db_collaborations$etudiant1[db_collaborations$etudiant1 %in% c("stamant_xavier")]<-"saintamant_xavier"
+  
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("baubien_marie")]<-"beaubien_marie"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("bertiaume_elise")]<-"berthiaume_elise"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("stpierre_anthony")]<-"saintpierre_anthony"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("viel_lapointe")]<-"viellapointe_catherine"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("vielapointe_catherine")]<-"viellapointe_catherine"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("saintamant_xavier")]<-"stamant_xavier"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("raymon_louisphilippe")]<-"raymond_louisphilippe"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("plewenski_david")]<-"plewinski_david"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("nadonbeaumier_ed+G5:J30ouard")]<-"nadonbeaumier_edouard"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("martineau_alex")]<-"martineau_alexandre"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("leclair_oliver")]<-"leclerc_olivier"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("leclerc_oliver")]<-"leclerc_olivier"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("langlois_claudianne")]<-"langlois_claudieanne"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("elisabeth_roy")]<-"roy_elisabeth"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("coulombe_Jessica")]<-"coulombe_jessica"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("coulombre_jessica")]<-"coulombe_jessica"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("d_hamelin_maili","hamelin_maili")]<-"dhamelin_maili"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("jameslaurie_veldon")]<-"laurie_veldonjames"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("stamant_xavier")]<-"saintamant_xavier"
+  db_collaborations$etudiant2[db_collaborations$etudiant2 %in% c("mathieu_fauchon")]<-"fauchon_mathieu"
+  
+  db_collaborations$sigle[db_collaborations$sigle %in% c("tbs303")]<-"TSB303"
+  db_collaborations$sigle[db_collaborations$sigle %in% c("tbS303")]<-"TSB303"
+  db_collaborations$sigle[db_collaborations$sigle %in% c("TBS303")]<-"TSB303"
+  
   is.duplicated_collaborations <- duplicated(db_collaborations[,1:3]) 
   sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F) 
   order_collaboration <- sub.collaborations[order(sub.collaborations$etudiant1),]
+  order_collaboration <- order_collaboration[-c(which(order_collaboration$etudiant1==order_collaboration$etudiant2)),]
 }
   
 #Pour noeuds
-doublon_free_noeuds <- function() {
-  is.duplicated_noeuds <- duplicated(db_noeuds[,1:3]) 
+doublon_free_noeuds <- function(db_noeuds) {
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("baubien_marie")]<-"beaubien_marie"
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("bertiaume_elise")]<-"berthiaume_elise"
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("stpierre_anthony")]<-"saintpierre_anthony"
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("hamelin_maili")]<-"dhamelin_maili"
+  db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("stamant_xavier")]<-"saintamant_xavier"
+  
+  is.duplicated_noeuds <- duplicated(db_noeuds$nom_prenom) 
   sub.noeuds <- subset(db_noeuds, is.duplicated_noeuds==F) 
-  order_noeuds <- sub.noeuds[order(sub.noeuds$etudiant1),]
+  order_noeuds <- sub.noeuds[order(sub.noeuds$nom_prenom),]
 }
 
 #Pour cours
-doublon_free_cours <- function() {
-  is.duplicated_cours <- duplicated(db_cours[,1:3]) 
+doublon_free_cours <- function(db_cours) {
+  is.duplicated_cours <- duplicated(db_cours$sigle) 
   sub.cours <- subset(db_cours, is.duplicated_cours==F) 
-  order_cours <- sub.cours[order(sub.cours$etudiant1),]
+  order_cours <- sub.cours[order(sub.cours$sigle),]
 }
 
 ###############CRÉER LES TABLES SQL ET INJECTER L'INFORMATION DANS LES TABLES########################################
@@ -158,7 +228,7 @@ adj_collab <- table(data_matrice)
 
 #################FIGURES##########################################################################
 # 1) Production du reseau de liens de la totalite des etudiants 
-reaseau_f <- function() {
+reseau_f <- function() {
 #Réduire les marges sinon ne peut pas s'afficher
 par(mar=c(0.1,0.1,0.1,0.1))
 #Construire le graphique

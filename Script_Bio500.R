@@ -209,10 +209,9 @@ sub.collaborations <- subset(db_collaborations, is.duplicated_collaborations==F)
 #          METTRE EN ORDRE
 order_collaboration <- sub.collaborations[order(sub.collaborations$etudiant1),]
 
-#retirer une auto-collaboration
-# 1: Spotter l'auto-collab
-which(order_collaboration$etudiant1==order_collaboration$etudiant2)
-order_collaboration <- order_collaboration[-c(1936),]
+#         RETIRER LES AUTO_COLLABS
+order_collaboration <- order_collaboration[-c(which(order_collaboration$etudiant1==order_collaboration$etudiant2)),]
+
 # COURS  
 #         ENLEVER LES DOUBLONS
 is.duplicated_cours <- duplicated(db_cours$sigle)
@@ -223,6 +222,19 @@ data_cours <- sub.cours[order(sub.cours$sigle),]
 
 
 # NOEUDS
+#         ENLEVER LES ERREURS
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("baubien_marie")]<-"beaubien_marie"
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("bertiaume_elise")]<-"berthiaume_elise"
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("stpierre_anthony")]<-"saintpierre_anthony"
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("hamelin_maili")]<-"dhamelin_maili"
+db_noeuds$nom_prenom[db_noeuds$nom_prenom %in% c("stamant_xavier")]<-"saintamant_xavier"
+
 #         ENLEVER LES DOUBLONS
 is.duplicated_noeuds <- duplicated(db_noeuds$nom_prenom)
 sub.noeuds <- subset(db_noeuds, is.duplicated_noeuds==F)  
@@ -230,29 +242,13 @@ sub.noeuds <- subset(db_noeuds, is.duplicated_noeuds==F)
 #         METTRE EN ORDRE
 order_noeuds <- sub.noeuds[order(sub.noeuds$nom_prenom),]
 
-#         ENLEVER LES ERREURS
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("arseneault_benoit","arsenault_benoit+G5:J30")]<-"arsenault_benoit"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("baubien_marie")]<-"beaubien_marie"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("bertiaume_elise")]<-"berthiaume_elise"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("codaire_francois_xavier")]<-"codaire_francoisxavier"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("hamzaoui_karime")]<-"hamzaoui_karim"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("cloutier_zachari","cloutier_zach")]<-"cloutier_zachary"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("stpierre_anthony")]<-"saintpierre_anthony"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("stpierre_audreyann")]<-"saintpierre_audreyann"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("lefevbre_isabelle")]<-"lefebvre_isabelle"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("hamelin_maili")]<-"dhamelin_maili"
-order_noeuds$nom_prenom[order_noeuds$nom_prenom %in% c("stamant_xavier")]<-"saintamant_xavier"
-
-#         ENLEVER LES AUTRES DOUBLONS
-is.duplicated_noeuds <- duplicated(order_noeuds$nom_prenom)
-data_noeuds <- subset(order_noeuds, is.duplicated_noeuds==F)  
 
 ##########################################################################################
 ##########  INJECTION DES DONNEES          ###############################################
 ##########################################################################################
 dbWriteTable(con, append = TRUE, name = "collaborations", value = order_collaboration, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "cours", value = data_cours, row.names = FALSE)   
-dbWriteTable(con, append = TRUE, name = "noeuds", value = data_noeuds, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "noeuds", value = order_noeuds, row.names = FALSE)
 
 ##########################################################################################
 ##########      REQUETES      ############################################################
