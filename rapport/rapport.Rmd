@@ -49,7 +49,7 @@ lineno: false
 
 # Introduction
 #Comme mentionné dans plusieurs études écologiques, les différents organismes d'un environnement donné sont tous liés entre eux par différents lien qui les unis. Ces liens correspondent à leur réseau de connection et permettent de voir l'impact qu'une espèce aurait sur le reste de la population présente. Dans cette optique, il est possible de voir si les relations humaines pourraient avoir le même type de lien au niveau social. 
-#Changer intro ?
+#Changer intro ? (combiner les 2)
 Dans ce rapport, nous nous penchons sur un type de réseau, soit le réseau de petit monde, à savoir si les caractéristique de ce réseau concordent avec celles du réseau de collaborations que nous avons obtenu. Ce dernier a été produit à partir d'une base de données des collaborations des étudiant(e)s du cours BIO500 donné à l'Université de Sherbrooke à l'hiver 2022. Afin de répondre à notre objectif, nous cherchons plus précisement à savoir s'il existe une corrélation entre le nombre de liens des étudiant(e)s entre eux/elles et leur centralité dans leur réseau de liens. Nous effectuons également le calcul du Bacon number d'une des étudiante pour calculer la distance entre cette étudiante et ses collègues du cours BIO500.  
 
 # Méthode
