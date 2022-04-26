@@ -33,7 +33,7 @@ keywords:
   - Centralité
   - Collaboration
   - Liens 
-  - Réseaux
+  - Petits mondes
 
 ## must be one of: pnasresearcharticle (usual two-column layout), pnasmathematics (one column layout), or pnasinvited (invited submissions only)
 pnas_type: pnasresearcharticle.sty
