@@ -57,15 +57,15 @@ Nous avons tout d'abord récolté les données des 193 étudiant(e)s relié(e)s 
 
 # Résultats
 
-![Figure 1. Réseau de collaboration](%22../Projet_BIO500/Figure1.pdf%22)
+![Figure 1. Réseau de collaboration](%22../results/reseau.pdf%22)
 
 La figure 1 montre le réseau de collaborations, soit la position des étudiants en fonction du nombre de liens les un par rapport aux autres.
 
-![Figure 2. Relation entre la centralité et le nombre de lien](%22../Projet_BIO500/Figure2.pdf%22)
+![Figure 2. Relation entre la centralité et le nombre de lien](%22../results/centralite.pdf%22)
 
 La figure 2 représente la corrélation entre la centralité et le nombre de lien des étudiants. La corrélation entre ces deux facteurs n'est pas significative, car la corrélation a un P-value de 0,2493 (P\>0.05).
 
-![Figure 3. Degré de séparation d'Élisabeth Roy](%22../Projet_BIO500/Figure3.pdf%22)
+![Figure 3. Degré de séparation d'Élisabeth Roy](%22../results/bacon.pdf%22)
 
 La figure 3 représente le degré de séparation par rapport à l'étudiante Élisabeth Roy. On peut voir que la majorité des étudiants a entre 2 et 4 degrés de séparation avec Élisabeth Roy.
 
