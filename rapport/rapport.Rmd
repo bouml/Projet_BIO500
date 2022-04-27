@@ -67,7 +67,7 @@ La figure 2 représente la corrélation entre la centralité et le nombre de lie
 
 ![Figure 3. Degré de séparation d'Élisabeth Roy](%22../results/bacon.pdf%22)
 
-La figure 3 représente le degré de séparation par rapport à l'étudiante Élisabeth Roy. On peut voir que la majorité des étudiants ont entre 2 et 4 degrés de séparation avec Élisabeth Roy.
+La figure 3 représente le degré de séparation des étudiants par rapport à l'étudiante Élisabeth Roy. On peut voir que la majorité des étudiants ont une distance collaborative entre 2 et 4 degrés de séparation avec Élisabeth Roy.
 
 # Discussion
 
