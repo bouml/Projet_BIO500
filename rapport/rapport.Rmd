@@ -77,3 +77,7 @@ Le but de ce travail était d'établir si le réseau de collaboration des étudi
 \newpage
 
 # Bibliographie {.unnumbered}
+
+Uzzi, B., Amaral, L. A., & Reed‐Tsochas, F. (2007). Small‐world networks and management science research: A review. European Management Review, 4(2), 77-91.
+
+Borgatti, S. P. (2005). Centrality and network flow. Social networks, 27(1), 55-71.
