@@ -1,46 +1,46 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 calcul_connectance|function|fef5abb57b2c64f6|||||||||||||||
 con_db_f|function|c5208cbf425af30e|||||||||||||||
-connectance|stem|007a6248c03ac60d|508545a22013ed69|72321207ecf716d5|1467906577||t19105.7352984147s|82c1d84d4f45bcb8|56|rds|local|vector|||0||
+connectance|stem|007a6248c03ac60d|508545a22013ed69|72321207ecf716d5|1467906577||t19111.8176700419s|82c1d84d4f45bcb8|56|rds|local|vector|||0||
 create_db|function|2fe11e0c603a6b75|||||||||||||||
 data|stem|88b4dde6065eb78b|4d28b3ae61066c9f|15669340fa0be499|1588979285||t19105.597764753s|c5d164050871107a|452|rds|local|vector|||0.14||
-db|stem|60c85de45e4d9920|4ce3b3572555751c|d693adc9943ddf5e|-1826638462||t19105.7387801684s|3bd8f66805fd112b|45|rds|local|vector|||0.49|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3. package igraph was built under R version 4.1.3|
+db|stem|60c85de45e4d9920|4ce3b3572555751c|d693adc9943ddf5e|-1826638462||t19111.8176581197s|3bd8f66805fd112b|45|rds|local|vector|||0.5|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3. package igraph was built under R version 4.1.3|
 db_connect|function|fc36b4487385a51c|||||||||||||||
 doublon_free_collab|function|c4c70f7c457b1cdb|||||||||||||||
 doublon_free_cours|function|019f3573e7101489|||||||||||||||
 doublon_free_noeuds|function|2e87bf3b15bf7b51|||||||||||||||
-figure_deux|stem|6e6b1a2604262a68|0b5831e30ed5d7cb|f46b7b2e0f1ff92a|1916810556||t19111.7467488854s|19c44c60f74c1fe4|371|rds|local|vector|||0.02||
+figure_deux|stem|6e6b1a2604262a68|0b5831e30ed5d7cb|fa5b852f7e599c3d|1916810556||t19111.8176748108s|19c44c60f74c1fe4|371|rds|local|vector|||0||
 figure_deux_f|function|f3e5e56bcc6fa1f8|||||||||||||||
-figure_trois|stem|8bfde6aba8539aa1|57997bde473b76ab|cff19fff4ecf315a|-297285251||t19111.7693226208s|229171ff431f9dba|224|rds|local|vector|||0.58|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3. package igraph was built under R version 4.1.3|
+figure_trois|stem|8bfde6aba8539aa1|57997bde473b76ab|cca4dc915f6a20cc|-297285251||t19111.8176750886s|229171ff431f9dba|224|rds|local|vector|||0.02||
 figure_trois_f|function|98013bf254134eaa|||||||||||||||
-figure_un|stem|60c85de45e4d9920|e7804fa88d170f76|0d8ffe9be3eb9eb4|-1053093108||t19111.7467483761s|3bd8f66805fd112b|45|rds|local|vector|||0.69||
+figure_un|stem|60c85de45e4d9920|e7804fa88d170f76|4819020cd364e71f|-1053093108||t19111.8176745561s|3bd8f66805fd112b|45|rds|local|vector|||0.37||
 figure_un_f|function|6846d1d78c770956|||||||||||||||
-lien_par_paire_etudiant|stem|9daeef04d7c07a67|ec57879489aaac48|e7b49f0ae1c83e87|-259458117||t19105.7312627757s|13770b6fbe37dd84|4929|rds|local|vector|||0.5|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3|
+lien_par_paire_etudiant|stem|9daeef04d7c07a67|ec57879489aaac48|e7b49f0ae1c83e87|-259458117||t19111.8176689886s|13770b6fbe37dd84|4929|rds|local|vector|||0.02||
 lien_par_paire_etudiant_f|function|806edf093de87d5c|||||||||||||||
 liens_par_etudiant_f|function|35be4172435793a1|||||||||||||||
-matrice_adjacence|stem|43961824642263c7|18419c43a76965a0|a119efcfa97b736a|453969542||t19105.7307789953s|a56839002105597a|4749|rds|local|vector|||0||
+matrice_adjacence|stem|43961824642263c7|18419c43a76965a0|a119efcfa97b736a|453969542||t19111.8176686645s|a56839002105597a|4749|rds|local|vector|||0||
 matrice_adjacence_f|function|f7dfbd57e21839fe|||||||||||||||
-nb_etudiant|stem|117597533771e4aa|a4bd6c0d94d723cd|b9a954f2d0fceb10|-85725160||t19105.7312633198s|7093bf618012a052|126|rds|local|vector|||0.03||
+nb_etudiant|stem|117597533771e4aa|a4bd6c0d94d723cd|b9a954f2d0fceb10|-85725160||t19111.8176692201s|7093bf618012a052|126|rds|local|vector|||0.02||
 nb_etudiant_f|function|1c1ef5c5b280ca5c|||||||||||||||
-rapport|stem|2762679296f80487|ef43fbb9ead70f44|b2b6c42f571a67ec|-316371949|rapport/rapport.pdf*rapport/rapport.Rmd|t19111.7901870146s|a6f5e80d4dab9a07|304735|file|local|vector|||8.61|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3. package igraph was built under R version 4.1.3. Package sidecap Warning Package ragged2e not found  expect bad formatting.. Package microtype Warning Unable to apply patch eqnum on input line 101.|
+rapport|stem|2762679296f80487|ef43fbb9ead70f44|b2b6c42f571a67ec|-316371949|rapport/rapport.pdf*rapport/rapport.Rmd|t19111.8173974416s|a6f5e80d4dab9a07|304735|file|local|vector|||8.61|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3. package igraph was built under R version 4.1.3. Package sidecap Warning Package ragged2e not found  expect bad formatting.. Package microtype Warning Unable to apply patch eqnum on input line 101.|
 reaseau_f|function|104248ad68af3b3a|||||||||||||||
-requete_nb_collab|stem|2f2d146e65cf5c9a|57db45742d6641f7|1c7c57e712c672cf|805874338||t19105.731263586s|4488c7b92651769a|2113|rds|local|vector|||0||
-reseau|stem|9744b611562394c8|742fdb05fdbc4190|158dd60438d3a442|-902459421||t19105.7525549203s|a661df0b76e16a60|24054|rds|local|vector|||0.64|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3. package igraph was built under R version 4.1.3|
+requete_nb_collab|stem|2f2d146e65cf5c9a|57db45742d6641f7|1c7c57e712c672cf|805874338||t19111.817669521s|4488c7b92651769a|2113|rds|local|vector|||0||
+reseau|stem|6dc923a27de70ca2|742fdb05fdbc4190|158dd60438d3a442|-902459421||t19111.8176698451s|a09341f92c102b03|24053|rds|local|vector|||0.01||
 reseau_f|function|6dc96794d5efd77c|||||||||||||||
 summ|function|725b50cbf04a3ed2|||||||||||||||
 summary|stem|869a73c1cb45dd95|504e748dde9ca536|be764fa8bed89a95|760118442||t19105.5977652507s|b6284359ec2a2750|125|rds|local|vector|||0.01||
-table_clean_collab|stem|951fe7cf28a3fd73|43d36163528cce7c|727877066a191aa9|-1269191457||t19105.6559771632s|91ffd2a3e5fe18f6|16055|rds|local|vector|||0.6|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3|
-table_clean_cours|stem|872068f4bd524fc0|5a6f51e6a1ab4d55|5472b7e3db0de05f|-1533497059||t19105.6376614276s|00a6daeef03e8bb7|617|rds|local|vector|||0.11|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3|
-table_clean_noeuds|stem|5f72bdd2b872f11c|c5be3d66e955459a|cd63ae800c089664|9281674||t19105.638077155s|0d4cd34763bbcfc0|3052|rds|local|vector|||0.12|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3|
-table_collab|stem|a093120cb2cf1726|4174891bd287d8bb|c86498e69ec021df|-2101174807||t19105.6683853622s|0468c1dc4a6a3fc0|11784|rds|local|vector|||0.08||
+table_clean_collab|stem|951fe7cf28a3fd73|43d36163528cce7c|727877066a191aa9|-1269191457||t19111.8176646017s|91ffd2a3e5fe18f6|16055|rds|local|vector|||0.28||
+table_clean_cours|stem|872068f4bd524fc0|5a6f51e6a1ab4d55|5472b7e3db0de05f|-1533497059||t19111.8176648448s|00a6daeef03e8bb7|617|rds|local|vector|||0||
+table_clean_noeuds|stem|5f72bdd2b872f11c|c5be3d66e955459a|cd63ae800c089664|9281674||t19111.8176654351s|0d4cd34763bbcfc0|3052|rds|local|vector|||0.05||
+table_collab|stem|a093120cb2cf1726|4174891bd287d8bb|c86498e69ec021df|-2101174807||t19111.8176592193s|0468c1dc4a6a3fc0|11784|rds|local|vector|||0.06||
 table_collab_f|function|d3d2895a4b14b397|||||||||||||||
-table_collab_sql|stem|b7046c7fb81b16f2|d52dbff61ccbdce5|8ce3289ccec1aae8|825859213||t19105.7387819394s|b7e93ffaaaa96be2|10445|rds|local|vector|||0.08|Closing open result set, pending rows. Closing open result set, pending rows|
+table_collab_sql|stem|b7046c7fb81b16f2|d52dbff61ccbdce5|8ce3289ccec1aae8|825859213||t19111.817666743s|b7e93ffaaaa96be2|10445|rds|local|vector|||0.07|Closing open result set, pending rows. Closing open result set, pending rows|
 table_collab_sql_f|function|08ec9ca17aee228a|||||||||||||||
-table_cours|stem|cd577d82da3c0c91|e878bc07555b5dc6|06255ffaeb835c38|1148376836||t19105.6683865312s|f6b78395403300bf|876|rds|local|vector|||0.08||
+table_cours|stem|cd577d82da3c0c91|e878bc07555b5dc6|06255ffaeb835c38|1148376836||t19111.8176604116s|f6b78395403300bf|876|rds|local|vector|||0.09||
 table_cours_f|function|c96e53eccb780087|||||||||||||||
-table_cours_sql|stem|db68e9c486e12b9a|81fbbe854cefb0d1|6ed7d91718d44b07|1847659374||t19105.7387829927s|ceeaab3959daa897|479|rds|local|vector|||0.06|Closing open result set, pending rows. Closing open result set, pending rows|
+table_cours_sql|stem|db68e9c486e12b9a|81fbbe854cefb0d1|6ed7d91718d44b07|1847659374||t19111.8176677732s|ceeaab3959daa897|479|rds|local|vector|||0.07|Closing open result set, pending rows. Closing open result set, pending rows|
 table_cours_sql_f|function|78558ac330a351b0|||||||||||||||
-table_noeuds|stem|58dd4da532253d46|d61782bd2dbb6498|3a7cb93fe45395d1|1008614881||t19105.6683874804s|52f60ab0bbd950f3|3101|rds|local|vector|||0.06||
+table_noeuds|stem|58dd4da532253d46|d61782bd2dbb6498|3a7cb93fe45395d1|1008614881||t19111.8176610945s|52f60ab0bbd950f3|3101|rds|local|vector|||0.04||
 table_noeuds_f|function|320c7c5a9f32f03a|||||||||||||||
-table_noeuds_sql|stem|d04a9164e0349949|cd7d96463c671bba|09d7459bc0b1b940|37993241||t19105.7387835367s|8bd0c61e5e627ec2|2590|rds|local|vector|||0.03|Closing open result set, pending rows. Closing open result set, pending rows|
+table_noeuds_sql|stem|d04a9164e0349949|cd7d96463c671bba|09d7459bc0b1b940|37993241||t19111.8176683288s|8bd0c61e5e627ec2|2590|rds|local|vector|||0.03|Closing open result set, pending rows. Closing open result set, pending rows|
 table_noeuds_sql_f|function|ba8b9722e75bbf89|||||||||||||||
