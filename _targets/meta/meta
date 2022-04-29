@@ -22,6 +22,7 @@ matrice_adjacence|stem|43961824642263c7|18419c43a76965a0|a119efcfa97b736a|453969
 matrice_adjacence_f|function|f7dfbd57e21839fe|||||||||||||||
 nb_etudiant|stem|117597533771e4aa|a4bd6c0d94d723cd|b9a954f2d0fceb10|-85725160||t19105.7312633198s|7093bf618012a052|126|rds|local|vector|||0.03||
 nb_etudiant_f|function|1c1ef5c5b280ca5c|||||||||||||||
+rapport|stem|76e891d07e0ac2bf|9b10d1efde4e6761|4745aa592080ea1d|-316371949|rapport/rapport.pdf*rapport/rapport.Rmd|t19111.7258316653s|f4706463be1acd9a|303027|file|local|vector|||8|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3. package igraph was built under R version 4.1.3. Package sidecap Warning Package ragged2e not found  expect bad formatting.. Package microtype Warning Unable to apply patch eqnum on input line 101.|
 reaseau_f|function|104248ad68af3b3a|||||||||||||||
 requete_nb_collab|stem|2f2d146e65cf5c9a|57db45742d6641f7|1c7c57e712c672cf|805874338||t19105.731263586s|4488c7b92651769a|2113|rds|local|vector|||0||
 reseau|stem|9744b611562394c8|742fdb05fdbc4190|158dd60438d3a442|-902459421||t19105.7525549203s|a661df0b76e16a60|24054|rds|local|vector|||0.64|package rmarkdown was built under R version 4.1.3. package usethis was built under R version 4.1.3. package igraph was built under R version 4.1.3|

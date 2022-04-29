@@ -62,7 +62,11 @@ list(
     figure_deux_f(reseau, requete_nb_collab)),
   tar_target(
     figure_trois, 
-    figure_trois_f(reseau))
+    figure_trois_f(reseau)),
+  tar_render(
+    rapport,
+    "rapport/rapport.Rmd"
+  )
 )
 
     
