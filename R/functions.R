@@ -271,7 +271,7 @@ figure_un_f <- function(network,adj_collab) {
   V(network)$size = col.vec.taille[rk]
   # Refaire la figure
   plot(network, vertex.label=NA, edge.arrow.mode = 0,
-     vertex.frame.color = NA, main="Reseau de collaborations de la cohorte 2019-2022")
+     vertex.frame.color = NA)
 }
 
 # 2) Existe-t-il une correlation entre le nombre de liens et la centralite
@@ -281,7 +281,7 @@ figure_deux_f <- function(network,nb_collaborations) {
   par(mar=c(5,5,5,5))
   centralite=eigen_centrality(network)$vector 
   nombre_de_liens=nb_collaborations[,2]
-  plot(nombre_de_liens,centralite,pch=20,main="Relation entre la centralite et le nombre de liens", 
+  plot(nombre_de_liens,centralite,pch=20, 
      xlab = "Nombre de liens", ylab= "Centralite")
   cor.test(nombre_de_liens,centralite)
 }
@@ -292,5 +292,6 @@ figure_trois_f <- function(network) {
   par(mar=c(5,5,5,5))
   distance=distances(network)
   bacon_number=as.matrix(distance[,168])
-  hist(bacon_number, xlab="Nombre de Bacon", ylab="Frequence",main="Degres de separation d'Elisabeth Roy",breaks = 6)
+  bacon_number=bacon_number[bacon_number!=0]
+  hist(bacon_number, xlab="Nombre de Bacon", ylab="Frequence", breaks = c(0.5,1.5,2.5,3.5,4.5), main=NULL)
 }

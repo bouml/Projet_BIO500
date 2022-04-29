@@ -1,5 +1,5 @@
 ---
-title: Réseau de collaborations des étudiants du cours BIO500 donné à l'Université de Sherbrooke à l'hiver 2022
+title: Réseau de collaborations des étudiants du cours BIO500 de l'Université de Sherbrooke donné à l'hiver 2022
 
 # Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
 author:
@@ -20,7 +20,7 @@ address:
 
 abstract: |
 
-  Dans ce rapport, le réseau de collaboration des étudiants du cours BIO500 donné à l'hiver 2022 de l'Université de Sherbrooke fut comparé au réseau de type petit monde pour voir si les caractéristique d'un réseau de collaboration peut être considéré comme un réseau de petit monde. L'utilisation de données recueillies sur 193 étudiants concernant leurs liens les uns par rapport aux autres ont servis à faire un réseau de collaborations. Les analyses effectuées sur ce réseau furent l'analyse de la corrélation entre la centralité et le nombre de liens des étudiants et le calcul du 'Bacon number'd'une des étudiante pris au hasard. Ces analyses ont montré une corrélation non significative entre la centralité et le nombre de liens et un 'Bacon number' se situant entre 2 et 4. Cependant, les réseaux de type petit monde ont une corrélation entre leur centralité et leur nombre de liens et un 'Bacon number' de 6 et moins. Donc ce réseau de collaborations n'a pas toutes les caractéristiques étudiées dans ce rapport correspondant aux caractéristiques des réseaux de type petit monde. 
+  Dans ce rapport, le réseau de collaborations des étudiants du cours BIO500 de l'Université de Sherbrooke, donné à l'hiver 2022, fut comparé au réseau de type petit monde afin d'analyser si les caractéristique d'un réseau de collaborations peut être considéré comme un réseau de petit monde. L'utilisation de données recueillies sur 193 étudiants concernant leurs liens entre chacun d'entre eux ont servis à construire un réseau de collaborations. Les analyses effectuées sur ce réseau sont l'analyse de la corrélation entre la centralité et le nombre de liens des étudiants et le calcul du 'Bacon number' d'une des étudiantes de notre équipe. Ces analyses ont montré une corrélation non significative entre la centralité et le nombre de liens et un 'Bacon number' se situant entre 2 et 4. Cependant, les réseaux de type petit monde ont une corrélation entre leur centralité et leur nombre de liens et un 'Bacon number' de 6 et moins. En somme, ce réseau de collaborations n'a pas toutes les caractéristiques étudiées dans ce rapport correspondant aux caractéristiques des réseaux de type petit monde. 
 
 
 keywords:
@@ -50,20 +50,33 @@ Dans plusieurs études écologiques, les différents organismes d'un environneme
 
 Nous avons tout d'abord récolté les données des 193 étudiants reliés au cours BIO500, soit des étudiants inscrits au cours et ayant collaboré avec des étudiants inscrits au cours. Nous avons classé ces données en trois tables, l'une concernant les étudiants avec des informations telles que l'année de début de leurs études et le nom de leur programme d'études, la deuxième concernant les cours avec des informations telles que le sigle du cours et le nombre de crédits du cours et la dernière concernant les collaborations entre les étudiants avec des informations telles que le nom des deux étudiants et le sigle du cours dans lequel ils ont collaboré. Nous avons utilisé le logiciel R version 4.1.3 pour faire la lecture, le nettoyage, l'injection des données et l'analyse des différentes données. À l'aide de ces données, nous avons généré trois figures nous permettant de répondre à notre objectif, à savoir si notre réseau se compare à un réseau de petit monde. Pour faciliter le lien entre les données, l'analyse et les figures, nous avons créé un script target. Nous avons également utilisé GitHub pour faciliter le partage et le stockage des données.
 
+
 # Résultats
 
-![Réseau de collaboration \label{fig:plot1}](../results/reseau.pdf){width=50% height=40%}
+```{r echo=FALSE, include=FALSE}
+targets::tar_read(figure_un)
+```
+
+![Réseau de collaboration de la cohorte 2022 \label{fig:plot1}](../results/reseau.pdf){width=50% height=40%}
 
 La figure \ref{fig:plot1} montre le réseau de collaborations, soit la position des étudiants en fonction du nombre de liens les uns par rapport aux autres. On observe les points, représentant les étudiants, reliés par leurs collaborations avec les autre points entre eux. Dans cette figure, on retrouve des points plus gros plus au centre de la figure représentant les étudants ayant le plus de collaborations et des points plus petits vers l'extérieur de la figure représentant les étudiants ayant moins de collaborations.
 
+```{r echo=FALSE, include=FALSE}
+targets::tar_read(figure_deux)
+```
 
-![Relation entre la centralité et le nombre de lien \label{fig:plot2}](../results/centralite.pdf){width=50% height=40%}
+
+![Relation entre la centralité et le nombre de liens \label{fig:plot2}](../results/centralite.pdf){width=50% height=40%}
 
 
 La figure \ref{fig:plot2} représente la corrélation entre la centralité et le nombre de liens entre les étudiants. La corrélation effectuée pour voir le lien entre ces deux facteurs n'est pas significative, car la corrélation linéaire obtient une valeur de P de 0,2493 (P\>0.05).
 
+```{r echo=FALSE, include=FALSE}
+targets::tar_read(figure_trois)
+```
 
-![Degré de séparation d'Élisabeth Roy \label{fig:plot3}](../results/bacon.pdf){width=50% height=40%}
+
+![Degrés de séparation d'Élisabeth Roy \label{fig:plot3}](../results/bacon.pdf){width=50% height=40%}
 
 La figure \ref{fig:plot3} représente le degré de séparation des étudiants par rapport à l'étudiante Élisabeth Roy. On peut voir que la majorité des étudiants ont une distance collaborative entre 2 et 4 degrés de séparation avec Élisabeth Roy.
 

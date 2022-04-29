@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.29)  29 APR 2022 13:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.29)  29 APR 2022 14:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1073,40 +1073,40 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 9.49997pt on input line 118.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 157.
+(Font)              scaled to size 5.69998pt on input line 156.
 <../results/reseau.pdf, id=30, 505.89pt x 505.89pt>
 File: ../results/reseau.pdf Graphic file (type pdf)
 <use ../results/reseau.pdf>
-Package pdftex.def Info: ../results/reseau.pdf  used on input line 163.
+Package pdftex.def Info: ../results/reseau.pdf  used on input line 162.
 (pdftex.def)             Requested size: 252.85173pt x 270.37444pt.
 
-Overfull \hbox (6.75487pt too wide) in paragraph at lines 163--164
+Overfull \hbox (6.75487pt too wide) in paragraph at lines 162--163
  [][] 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.64998pt on input line 164.
+(Font)              scaled to size 6.64998pt on input line 163.
 [1{c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
  <../results/reseau.pdf>]
-<../results/centralite.pdf, id=56, 505.89pt x 505.89pt>
+<../results/centralite.pdf, id=54, 505.89pt x 505.89pt>
 File: ../results/centralite.pdf Graphic file (type pdf)
 <use ../results/centralite.pdf>
-Package pdftex.def Info: ../results/centralite.pdf  used on input line 178.
+Package pdftex.def Info: ../results/centralite.pdf  used on input line 177.
 (pdftex.def)             Requested size: 252.85173pt x 270.37444pt.
 
-Overfull \hbox (6.75487pt too wide) in paragraph at lines 178--180
+Overfull \hbox (6.75487pt too wide) in paragraph at lines 177--179
  [][] 
  []
 
-<../results/bacon.pdf, id=58, 505.89pt x 505.89pt>
+<../results/bacon.pdf, id=56, 505.89pt x 505.89pt>
 File: ../results/bacon.pdf Graphic file (type pdf)
 <use ../results/bacon.pdf>
-Package pdftex.def Info: ../results/bacon.pdf  used on input line 191.
+Package pdftex.def Info: ../results/bacon.pdf  used on input line 190.
 (pdftex.def)             Requested size: 252.85173pt x 270.37444pt.
 
-Overfull \hbox (6.75487pt too wide) in paragraph at lines 191--192
+Overfull \hbox (6.75487pt too wide) in paragraph at lines 190--191
  [][] 
  []
 
@@ -1114,46 +1114,56 @@ Overfull \hbox (6.75487pt too wide) in paragraph at lines 191--192
 Underfull \vbox (badness 1199) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 261.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 256.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.64998pt on input line 261.
+(Font)              scaled to size 6.64998pt on input line 256.
 [2 <../results/centralite.pdf> <../results/bacon.pdf>]
-Overfull \hbox (2.05554pt too wide) in paragraph at lines 289--294
+Overfull \hbox (2.05554pt too wide) in paragraph at lines 284--289
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--294
+Underfull \hbox (badness 10000) in paragraph at lines 284--289
 
  []
 
 
-Overfull \hbox (2.05554pt too wide) in paragraph at lines 295--300
+Overfull \hbox (2.05554pt too wide) in paragraph at lines 290--297
 [][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--300
+Underfull \hbox (badness 10000) in paragraph at lines 290--297
 
  []
 
 
-Overfull \hbox (2.05554pt too wide) in paragraph at lines 301--305
+Overfull \hbox (2.05554pt too wide) in paragraph at lines 298--303
 [][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--305
+Underfull \hbox (badness 10000) in paragraph at lines 298--303
 
  []
 
 
-Overfull \hbox (2.05554pt too wide) in paragraph at lines 306--310
+Overfull \hbox (2.05554pt too wide) in paragraph at lines 304--308
 [][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--310
+Underfull \hbox (badness 10000) in paragraph at lines 304--308
+
+ []
+
+
+Overfull \hbox (2.05554pt too wide) in paragraph at lines 309--313
+[][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--313
 
  []
 
@@ -1164,18 +1174,18 @@ Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: 6DD1E4048A6097C5929104D97A7129D1;569.
  ) 
 Here is how much of TeX's memory you used:
- 29628 strings out of 480193
- 553608 string characters out of 5891561
- 875317 words of memory out of 5000000
+ 29633 strings out of 480193
+ 553675 string characters out of 5891561
+ 875356 words of memory out of 5000000
  46830 multiletter control sequences out of 15000+600000
- 543141 words of font info for 171 fonts, out of 8000000 for 9000
+ 543247 words of font info for 174 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  115i,14n,118p,1004b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/alex4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on rapport.pdf (3 pages, 291837 bytes).
+Output written on rapport.pdf (3 pages, 293613 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 115 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
+ 144 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
  56396 words of extra memory for PDF output out of 61914 (max. 10000000)
 
